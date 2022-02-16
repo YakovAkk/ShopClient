@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -14,9 +17,12 @@ import { MainComponent } from './main/main.component';
     HeaderComponent,
     MainComponent
   ],
-  imports: [
+  imports: [  
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
