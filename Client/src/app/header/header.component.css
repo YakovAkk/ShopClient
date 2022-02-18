@@ -1,70 +1,71 @@
 
     .content-wrapper {
-      width: 80%;
-      height: 200vh;
-      padding: 0 2rem;
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
- 
-    .top-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 75px;
-      width: 80%;
-      position: fixed;
-      background: #fff;
-      top: 0;
-      right: 0;
-      padding: 0 2rem;
-      z-index: 99;
-    }
-      .top-header .menu-btn, .top-header .icon {
-        width: 50px;
-        height: 50px;
-        border-radius: 100%;
-        cursor: pointer;
-        padding: 12px;
-        transition: background 0.3s ease-in-out;
+        width: 80%;
+        height: 200vh;
+        padding: 0 2rem;
+        position: absolute;
+        right: 0;
+        top: 0;
       }
-        .top-header .menu-btn:hover {
-          background: #edf2f7;
+   
+      .top-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 75px;
+        width: 80%;
+        position: fixed;
+        background: #fff;
+        top: 0;
+        right: 0;
+        padding: 0 2rem;
+        z-index: 99;
+      }
+        .top-header .menu-btn, .top-header .icon {
+          width: 50px;
+          height: 50px;
+          border-radius: 100%;
+          cursor: pointer;
+          padding: 12px;
+          transition: background 0.3s ease-in-out;
         }
-
-          .navbar-top li {
-            display: inline-block;
-            margin-left: 20px;
+          .top-header .menu-btn:hover {
+            background: #edf2f7;
           }
-            .sp-btn {
-              padding: 10px 40px;
-              background: #4a5568;
-              cursor: pointer;
-              color: #fff;
-              font-family: inherit;
-              border-radius: 3px;
+  
+            .navbar-top li {
+              display: inline-block;
+              margin-left: 20px;
             }
-            .sp-btn-white {
-              padding: 10px 40px;
-              background: #fff;
-              font-family: inherit;
-              cursor: pointer;
-              color: #4a5568;
-              border-radius: 3px;
+              .sp-btn {
+                padding: 10px 40px;
+                background: #4a5568;
+                cursor: pointer;
+                color: #fff;
+                font-family: inherit;
+                border-radius: 3px;
+              }
+              .sp-btn-white {
+                padding: 10px 40px;
+                background: #fff;
+                font-family: inherit;
+                cursor: pointer;
+                color: #4a5568;
+                border-radius: 3px;
+              }
+            input {
+              padding: 9px 10px;
+              border: 1px solid #4a5568;
+              width: 400px;
             }
-          input {
-            padding: 9px 10px;
-            border: 1px solid #4a5568;
-            width: 400px;
-          }
-    .hero-slider {
-      margin-top: 80px;
-      width: 100%;
-      height: 400px;
-      background: #edf2f7;
-      background-image: url("../../img/367017-lego-background-wallpaper.jpg");
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
+      .hero-slider {
+        margin-top: 80px;
+        width: 100%;
+        height: 400px;
+        background: #edf2f7;
+        background-image: url("../../img/367017-lego-background-wallpaper.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+  
