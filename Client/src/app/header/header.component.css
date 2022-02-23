@@ -8,6 +8,9 @@
         top: 0;
       }
    
+      .active{
+        width: 100% !important;
+      }
       .top-header {
         display: flex;
         justify-content: space-between;

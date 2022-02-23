@@ -1,3 +1,2 @@
-<app-header></app-header>
-<app-side-bar></app-side-bar>
-<app-main></app-main>
+<app-header (onShowSideBar)="ShowSideBar()"></app-header>
+<app-side-bar [isShowSideBar]="isShowSideBar"></app-side-bar>

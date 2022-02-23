@@ -1,7 +1,7 @@
 <div class="body-wrapper row">
-    <div class="content-wrapper">        
-        <header class="top-header">
-                <div class="menu-btn toggle-btn">
+    <div [ngClass]="{'active': isShowSideBar}" class="content-wrapper">        
+        <header [ngClass]="{ 'active': isShowSideBar}" class="top-header">
+                <div class="menu-btn toggle-btn" (click)="ShowSideBar()">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                     version="1.1" x="0px" y="0px" viewBox="0 0 100 125" 
                     enable-background="new 0 0 100 100" 

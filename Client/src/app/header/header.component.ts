@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+
+  isShowSideBar : boolean = false
+
+  @Output()
+  onShowSideBar = new EventEmitter() 
+
+  ShowSideBar() : void{
+    this.isShowSideBar = !this.isShowSideBar;
+    this.onShowSideBar.emit()
+  }
+
 
   constructor() { }
 

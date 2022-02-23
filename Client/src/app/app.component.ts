@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Client';
+
+  isShowSideBar : boolean = true
+
+  ShowSideBar(){
+    this.isShowSideBar = !this.isShowSideBar
+  }
 }
