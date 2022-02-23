@@ -1,0 +1,34 @@
+.block{
+    padding: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.item{ 
+    border: 1px solid #000;
+    border-radius: 30px;
+    display: block;
+    margin: 50px;
+    padding: 30px;
+    border-color: #4a5568;
+    
+}
+
+.inlineBlock{
+    font-family: inherit;
+    font-size: 24px;
+    display: flex;
+    padding: 10px;
+}
+
+.sp-btn {
+    padding: 10px 40px;
+    margin: 0px 0px 0px 170px;
+    background: #4a5568;
+    cursor: pointer;
+    color: #fff;
+    font-family: inherit;
+    border-radius: 3px;
+  }

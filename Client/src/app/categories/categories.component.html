@@ -1,0 +1,16 @@
+<ul class="block">
+    <li *ngFor = "let category of Categories; let idx = index">
+        <div class = "item">
+            <div class = "inlineBlock">
+                <h4> Category : {{category.Name}} </h4>
+                <button class="sp-btn"> Buy </button>
+            </div>
+            
+            <img src = {{category.ImageUrl}}  width="500"  height="500">
+        </div>
+    </li>
+</ul>
+
+
+
+
