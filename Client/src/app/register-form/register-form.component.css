@@ -1,19 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap");
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10;
-  font-family: "Sansita Swashed", cursive;
-}
+
 .center {
+  width: 30%;
+  border: 1px solid #000;
   position: relative;
   padding: 50px 50px;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 20px;
+  margin: auto;
 }
 .center h1 {
   font-size: 2em;
