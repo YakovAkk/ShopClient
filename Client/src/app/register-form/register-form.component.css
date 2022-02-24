@@ -1,11 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap");
 .block{
- 
+
   width: 100%;
   height: 100%;
-  background: #000;
+  background: #4a5568;
 }
 .center {
+  position: absolute;
+  top: 10%;
   overflow: hidden;
   width: 30%;
   border: 1px solid #000;
