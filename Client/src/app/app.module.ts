@@ -9,7 +9,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { CategoryService } from './Services/CategoryService';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule, 
+    FormsModule  
   ],
   providers: [CategoryService],
   bootstrap: [AppComponent]

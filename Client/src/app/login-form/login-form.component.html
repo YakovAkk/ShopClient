@@ -8,11 +8,11 @@
         <span>Email</span>
       </div>
       <div class="inputbox">
-        <input type="text" required="required">
+        <input type="text" required="required" [(ngModel)]="userEmail">
         <span>Password</span>
       </div>
       <div class="inputbox">
-        <input type="button" value="login">
+        <input type="button" value="login" (click)="OnClick()">
       </div>
     </form>
   </div>
