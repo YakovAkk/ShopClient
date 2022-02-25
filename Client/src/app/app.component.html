@@ -1,8 +1,11 @@
-<!-- <app-header (onShowSideBar)="ShowSideBar()"></app-header>
-<app-side-bar [isShowSideBar]="isShowSideBar"></app-side-bar> -->
+
+
+<app-header (onShowSideBar)="ShowSideBar()" (onShowLogin)="ShowLogin()"
+ (onShowRegistration)="ShowRegistration()" [isShowComponent] = "isShowHeader"></app-header>
+<app-side-bar [isShowSideBar]="isShowSideBar" ></app-side-bar>
 
 <!--------------------------------------- test ------------------------------------------------------>
 
-<!-- <app-register-form></app-register-form> -->
-<app-login-form></app-login-form>
+<app-register-form [isShowComponent] = "isShowRegistration" (onClose)="ShowRegistration()"></app-register-form>
+<app-login-form  [isShowComponent] = "isShowLogin" (onClose)="ShowLogin()"></app-login-form>
 

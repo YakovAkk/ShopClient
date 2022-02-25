@@ -1,4 +1,4 @@
-<div class="body-wrapper row">
+<div class="body-wrapper row" [hidden]="!isShowComponent">
     <div [ngClass]="{'active': isShowSideBar}" class="content-wrapper">        
         <header [ngClass]="{ 'active': isShowSideBar}" class="top-header">
                 <div class="menu-btn toggle-btn" (click)="ShowSideBar()">
@@ -18,8 +18,8 @@
                             </form>
                         </li>
                         ---->
-                        <li><button class="sp-btn">Log in</button></li>
-                        <li><button class="sp-btn-white">Sign up</button></li>
+                        <li><button class="sp-btn" (click)="ShowLogin()">Log in</button></li>
+                        <li><button class="sp-btn-white" (click)="ShowRegistration()">Sign up</button></li>
                         <!-- <li><a href="#" class="">Log in</a></li> -->
                         <!-- <li><a href="#">Sign up</a></li> -->
 

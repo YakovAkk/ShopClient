@@ -1,10 +1,10 @@
-<div class="block">
+<div class="block" [hidden]="!isShowComponent">
   <div class="center">
     <h1>Login:</h1>
     <form>
       <div class="inputbox">
         <input type="text" required="required">
-        <div class="cl-btn-7"></div>
+        <div class="cl-btn-7" (click)="Close()"></div>
         <span>Email</span>
       </div>
       <div class="inputbox">

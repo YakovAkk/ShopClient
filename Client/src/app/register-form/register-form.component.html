@@ -1,9 +1,9 @@
 
-<div class="block">
+<div class="block" [hidden]="!isShowComponent">
   <div class="center">
     <div class="headerClose">
       <h1>Registration:</h1>
-      <div class="cl-btn-7"></div>
+      <div class="cl-btn-7" (click)="Close()"></div>
     </div>
     <form>
       <div class="inputbox">
