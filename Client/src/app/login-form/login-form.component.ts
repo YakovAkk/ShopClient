@@ -20,6 +20,8 @@ export class LoginFormComponent implements OnInit {
     this.onClose.emit()
   }
 
+  private _userService!: UserService; 
+
   constructor() { }
 
   ngOnInit(): void {
@@ -31,7 +33,12 @@ export class LoginFormComponent implements OnInit {
   userPassword : string = ""
 
   OnClick() : void{
+     console.log(new UserLogin(this.userEmail,this.userPassword))
+    //  this._userService.LoginUser(new UserLogin(this.userEmail,this.userPassword))
+     
 
+     this.userEmail = ""
+     this.userPassword = ""
   }
 
 }

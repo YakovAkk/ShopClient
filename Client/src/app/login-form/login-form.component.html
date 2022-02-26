@@ -3,12 +3,12 @@
     <h1>Login:</h1>
     <form>
       <div class="inputbox">
-        <input type="text" required="required">
+        <input type="text" required="required" [(ngModel)]="userEmail">
         <div class="cl-btn-7" (click)="Close()"></div>
         <span>Email</span>
       </div>
       <div class="inputbox">
-        <input type="text" required="required" [(ngModel)]="userEmail">
+        <input type="text" required="required" [(ngModel)]="userPassword" >
         <span>Password</span>
       </div>
       <div class="inputbox">

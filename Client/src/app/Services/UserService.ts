@@ -2,8 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserLogin } from '../Models/UserLogin';
 export class UserService{
-
-
     constructor (private http : HttpClient){
         
     }
