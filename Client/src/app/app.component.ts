@@ -32,4 +32,9 @@ export class AppComponent {
     this.ShowHeader()
   }
 
+  isShowBasketaAndLogoutButton : boolean = true
+  onLogin() : void{
+    this.isShowBasketaAndLogoutButton = !this.isShowBasketaAndLogoutButton
+  }
+
 }

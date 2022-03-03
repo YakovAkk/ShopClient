@@ -1,4 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { UserLogin } from '../Models/UserLogin';
+import { UserModel } from '../Models/UserModel';
+import { UserService } from '../Services/UserService';
+import { LoginUserStorage } from '../StorageDataOfUser/LoginUserStorage';
 
 @Component({
   selector: 'app-header',
@@ -6,13 +10,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  private _userStorage : LoginUserStorage = LoginUserStorage.getInstance()
   @Input()
   isShowComponent : boolean = true
-
-
   isShowSideBar : boolean = false
-
+  isShowLogin : boolean = false
   @Output()
   onShowSideBar = new EventEmitter() 
 
@@ -20,8 +22,6 @@ export class HeaderComponent implements OnInit {
     this.isShowSideBar = !this.isShowSideBar;
     this.onShowSideBar.emit()
   }
-
-  isShowLogin : boolean = false
 
   @Output()
   onShowLogin = new EventEmitter() 
@@ -39,9 +39,19 @@ export class HeaderComponent implements OnInit {
     this.isShowRegistration = !this.isShowRegistration;
     this.onShowRegistration.emit()
   }
-  constructor() { }
-
+  constructor(private readonly _userService : UserService) { }
+  
+  @Input()
+  public isLoginUser : boolean = true
   ngOnInit(): void {
   }
-  
+
+  Logout() : void{
+    let user : UserModel = this._userStorage.getUser()
+    this._userService.UserLogout(new UserLogin(user.NickName,user.Email,user.RememberMe)).subscribe((response) => {
+       console.log(response)
+    })
+    
+  }
+
 }

@@ -11,6 +11,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './Services/UserService';
+import { LoginUserStorage } from './StorageDataOfUser/LoginUserStorage';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,7 @@ import { UserService } from './Services/UserService';
     HeaderComponent,
     CategoriesComponent,
     LoginFormComponent,
-    RegisterFormComponent,
+    RegisterFormComponent
   ],
   imports: [
     BrowserModule,

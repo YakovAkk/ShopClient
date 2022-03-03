@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@angular/core';
 import { UserLogin } from '../Models/UserLogin';
+import { UserModel } from '../Models/UserModel';
 import { UserService } from '../Services/UserService';
+import { LoginUserStorage } from '../StorageDataOfUser/LoginUserStorage';
 
 @Component({
   selector: 'app-login-form',
@@ -10,11 +12,17 @@ import { UserService } from '../Services/UserService';
 })
 
 export class LoginFormComponent implements OnInit {
+
+  private _userStorage : LoginUserStorage = LoginUserStorage.getInstance()
   @Input()
   isShowComponent : boolean = false
 
   @Output()
   onClose = new EventEmitter() 
+
+  @Output()
+  onLogin = new EventEmitter() 
+
 
   Close() : void{
     this.onClose.emit()
@@ -61,15 +69,21 @@ export class LoginFormComponent implements OnInit {
         return
       }
 
-      console.log("Great!!")
+      console.log("Login was successed!")
+      // console.log("responce : " + this.LoginResponse)
+      // console.log(this.LoginResponse.email)
+      // console.log(this.LoginResponse.nickName)
+      // console.log(this.LoginResponse.rememberMe)
 
+      this._userStorage.setUser(new UserModel(this.LoginResponse.nickName,this.LoginResponse.email,this.LoginResponse.rememberMe))
+
+
+      this.onLogin.emit()
       this.onClose.emit()
-      //  for (let item of this.CategoryResponse) {
-      //     this.Categories.push(new CategoryModel(item.id,item.name,item.imageUrl))
-      //  }
+       
        
     })
-     
+    
      this.userEmail = ""
      this.userPassword = ""
   }
@@ -95,4 +109,7 @@ export class LoginFormComponent implements OnInit {
     this.MessageWhatIsIncorrectUser = str
     this.isShowIncorrectUser = true
   }
+
+
+
 }

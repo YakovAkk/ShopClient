@@ -15,4 +15,7 @@ export class UserService{
     RegistrationUser(userRegistration : UserRegistration): Observable<Object>{
         return this.http.post('https://localhost:7284/api/Account/Register',userRegistration)
     }
+    UserLogout(userLogin : UserLogin) : Observable<Object>{
+       return this.http.post('https://localhost:7284/api/Account/Logout',userLogin)
+    }
 }
