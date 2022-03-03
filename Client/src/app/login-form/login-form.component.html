@@ -1,15 +1,28 @@
 <div class="block" [hidden]="!isShowComponent">
   <div class="center">
     <h1>Login:</h1>
+    <div class="cl-btn-7" (click)="Close()"></div>
     <form>
-      <div class="inputbox">
-        <input type="text" required="required" [(ngModel)]="userEmail">
-        <div class="cl-btn-7" (click)="Close()"></div>
-        <span>Email</span>
+      <div class = "incorrectData" [hidden]="!isShowIncorrectEmail">
+        <p> {{MessageWhatIsIncorrectEmail}} </p>
       </div>
       <div class="inputbox">
-        <input type="text" required="required" [(ngModel)]="userPassword" >
+        <input type="text" required="required" [ngModelOptions]="{standalone: true}"  [(ngModel)]="userEmail">
+        <span>Email</span>
+      </div>
+      <div class = "incorrectData" [hidden]="!isShowIncorrectPassword">
+        <p> {{MessageWhatIsIncorrectPassword}}</p>
+      </div>
+      <div class="inputbox">
+        <input type="password" required="required" [ngModelOptions]="{standalone: true}"  [(ngModel)]="userPassword" >
         <span>Password</span>
+      </div>
+      <div class="CheckBox" >  
+        <input type="checkbox"  (click)="Checked()">
+        <label for="vehicle3"> Remember me</label><br>
+      </div>
+      <div class = "incorrectData" [hidden]="!isShowIncorrectUser">
+        <p> {{MessageWhatIsIncorrectUser}}</p>
       </div>
       <div class="inputbox">
         <input type="button" value="login" (click)="OnClick()">

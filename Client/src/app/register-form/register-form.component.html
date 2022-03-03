@@ -7,23 +7,35 @@
     </div>
     <form>
       <div class="inputbox">
-        <input type="text" required="required">
+        <input type="text" required="required" [ngModelOptions]="{standalone: true}" [(ngModel)] = "userName">
         <span>Nick name</span>
       </div>
+      <div class = "incorrectData" [hidden]="!isShowIncorrectEmail">
+        <p> {{MessageWhatIsIncorrectEmail}}</p>
+      </div>
       <div class="inputbox">
-        <input type="text" required="required">
+        <input type="text" required="required"  [ngModelOptions]="{standalone: true}" [(ngModel)] = "userEmail">
         <span>Email</span>
       </div>
+      <div class = "incorrectData" [hidden]="!isShowIncorrectPassword">
+        <p> {{MessageWhatIsIncorrectPassword}}</p>
+      </div>
       <div class="inputbox">
-        <input type="text" required="required">
+        <input type="password" required="required" [ngModelOptions]="{standalone: true}" [(ngModel)] = "userPassword">
         <span>Password</span>
       </div>
-      <div class="inputbox">
-        <input type="text" required="required">
-        <span>Confirm password</span>
+      <div class = "incorrectData" [hidden]="!isShowIncorrectPasswordNotEqual">
+        <p> {{MessageWhatIsIncorrectPasswordNotEqual}}</p>
       </div>
       <div class="inputbox">
-        <input type="button" value="register">
+        <input type="password" required="required" [ngModelOptions]="{standalone: true}" [(ngModel)] = "userConfirmPassword">
+        <span>Confirm password</span>
+      </div>
+      <div class = "incorrectData" [hidden]="!isShowIncorrectUser">
+        <p> {{MessageWhatIsIncorrectUser}}</p>
+      </div>
+      <div class="inputbox">
+        <input type="button" value="register" (click)="OnClick()">
       </div>
     </form>
   </div>

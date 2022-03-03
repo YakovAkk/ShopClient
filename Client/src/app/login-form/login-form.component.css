@@ -17,15 +17,15 @@
   transform: rotate(45deg);
   font-size: 50px;
   line-height: 1;
-  top: -170px;
-  left: 220px;
+  top: -150px;
+  left: 195px;
   transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
 }
 .cl-btn-7:after {
   content: '';
   position: absolute;
-  top: -166px;
-  left: 214px;
+  top: -145px;
+  left: 190px;
   width: 100%;
   height: 100%;
   border-radius: 100%;
@@ -123,4 +123,16 @@
 }
 .center .inputbox:hover [type="button"] {
   background: linear-gradient(90deg, rgba(74,85,104,1) 0%, rgba(0,0,0,1) 100%);
+}
+
+.CheckBox{
+  padding: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.incorrectData{
+  font-size: 30px;
+  color: red;
+  margin-bottom: 15px;
 }

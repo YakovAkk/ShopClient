@@ -10,6 +10,7 @@ import { CategoryService } from './Services/CategoryService';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { FormsModule } from '@angular/forms';
+import { UserService } from './Services/UserService';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule, 
     FormsModule  
   ],
-  providers: [CategoryService],
+  providers: [CategoryService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

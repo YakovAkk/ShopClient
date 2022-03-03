@@ -124,3 +124,9 @@
 .center .inputbox:hover [type="button"] {
   background: linear-gradient(90deg, rgba(74,85,104,1) 0%, rgba(0,0,0,1) 100%);
 }
+
+.incorrectData{
+  font-size: 30px;
+  color: red;
+  margin-bottom: 15px;
+}
