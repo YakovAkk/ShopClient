@@ -10,7 +10,7 @@ import { LoginUserStorage } from '../StorageDataOfUser/LoginUserStorage';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  private _userStorage : LoginUserStorage = LoginUserStorage.getInstance()
+  public _userStorage : LoginUserStorage = LoginUserStorage.getInstance()
   @Input()
   isShowComponent : boolean = true
   isShowSideBar : boolean = false
@@ -43,15 +43,18 @@ export class HeaderComponent implements OnInit {
   
   @Input()
   public isLoginUser : boolean = true
+
+  
   ngOnInit(): void {
+    
   }
 
   Logout() : void{
     let user : UserModel = this._userStorage.getUser()
     this._userService.UserLogout(new UserLogin(user.NickName,user.Email,user.RememberMe)).subscribe((response) => {
        console.log(response)
-    })
-    
+       this.isLoginUser = !this.isLoginUser
+    }) 
   }
 
 }

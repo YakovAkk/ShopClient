@@ -70,4 +70,10 @@
         background-size: cover;
         background-repeat: no-repeat;
       }
-  
+.nick{
+  font-size: 20px;
+    border: 1px solid #4a5568;
+    border-radius: 3px;
+    font-family: inherit;
+    padding: 10px 40px;
+}

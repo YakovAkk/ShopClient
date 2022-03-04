@@ -65,6 +65,8 @@ export class RegisterFormComponent implements OnInit {
        return
      }
 
+     alert("Register was completed succsessfuly, now you can login)")
+
      console.log("Great!!")
 
      this.onClose.emit()

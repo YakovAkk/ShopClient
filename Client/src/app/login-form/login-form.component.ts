@@ -75,9 +75,10 @@ export class LoginFormComponent implements OnInit {
       // console.log(this.LoginResponse.nickName)
       // console.log(this.LoginResponse.rememberMe)
 
-      this._userStorage.setUser(new UserModel(this.LoginResponse.nickName,this.LoginResponse.email,this.LoginResponse.rememberMe))
+      this._userStorage.setUser(new UserModel(this.LoginResponse.nickName,
+        this.LoginResponse.email,this.LoginResponse.rememberMe))
 
-
+      alert("Welcome!")
       this.onLogin.emit()
       this.onClose.emit()
        
