@@ -3,7 +3,7 @@
         <div class = "item">
             <div class = "inlineBlock">
                 <h4> Category : {{category.Name}} </h4>
-                <button class="sp-btn"> Buy </button>
+                <button class="sp-btn" (click)="OnClick(category.Name)"> Buy </button>
             </div>
             
             <img src = {{category.ImageUrl}}  width="500"  height="500">

@@ -1,9 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@angular/core';
-import { UserLogin } from '../Models/UserLogin';
-import { UserModel } from '../Models/UserModel';
-import { UserService } from '../Services/UserService';
-import { LoginUserStorage } from '../StorageDataOfUser/LoginUserStorage';
+import { UserLogin } from '../OtherLogic/Models/UserLogin';
+import { UserModel } from '../OtherLogic/Models/UserModel';
+import { UserService } from '../OtherLogic/Services/UserService';
+import { LoginUserStorage } from '../OtherLogic/StorageDataOfUser/LoginUserStorage';
+
 
 @Component({
   selector: 'app-login-form',

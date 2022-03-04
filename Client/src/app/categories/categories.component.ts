@@ -1,6 +1,7 @@
-import { Component, Injectable, OnInit } from '@angular/core';
-import { CategoryModel } from '../Models/CategoryModel';
-import { CategoryService } from '../Services/CategoryService';
+import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@angular/core';
+import { CategoryModel } from '../OtherLogic/Models/CategoryModel';
+import { CategoryService } from '../OtherLogic/Services/CategoryService';
+
 
 @Component({
   selector: 'app-categories',
@@ -25,6 +26,19 @@ export class CategoriesComponent implements OnInit {
        
     })
   }
+
+  @Input()
+  ChoosenCategory : CategoryModel = new CategoryModel(null,"","")
+
+  @Output()
+  onChooseCategory = new EventEmitter()
+
+  OnClick(name : string) : void{
+     this.ChoosenCategory = this.Categories.filter(n => n.Name == name)[0]
+     this.onChooseCategory.emit()
+     // console.log(cat)
+  }
+
 }
 
 

@@ -1,8 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { UserLogin } from '../Models/UserLogin';
-import { UserModel } from '../Models/UserModel';
-import { UserService } from '../Services/UserService';
-import { LoginUserStorage } from '../StorageDataOfUser/LoginUserStorage';
+import { CategoryModel } from '../OtherLogic/Models/CategoryModel';
+import { UserLogin } from '../OtherLogic/Models/UserLogin';
+import { UserModel } from '../OtherLogic/Models/UserModel';
+import { UserService } from '../OtherLogic/Services/UserService';
+import { LoginUserStorage } from '../OtherLogic/StorageDataOfUser/LoginUserStorage';
+
 
 @Component({
   selector: 'app-header',
@@ -55,6 +57,12 @@ export class HeaderComponent implements OnInit {
        console.log(response)
        this.isLoginUser = !this.isLoginUser
     }) 
+  }
+
+  ShowCategory : CategoryModel = new CategoryModel(null,"","") 
+
+  ChooseCategory() : void{
+
   }
 
 }

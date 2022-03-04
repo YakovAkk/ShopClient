@@ -35,7 +35,8 @@
 
         
         <div>
-            <app-categories></app-categories>
+            <app-categories [ChoosenCategory]="ShowCategory" (onChooseCategory)="ChooseCategory()"></app-categories>
+            <!-- <app-lego-by-category></app-lego-by-category> -->
         </div>
 
 

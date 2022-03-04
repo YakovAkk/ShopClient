@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { UserRegistration } from '../Models/UserRegistration';
-import { UserService } from '../Services/UserService';
+import { UserRegistration } from '../OtherLogic/Models/UserRegistration';
+import { UserService } from '../OtherLogic/Services/UserService';
+
 
 @Component({
   selector: 'app-register-form',

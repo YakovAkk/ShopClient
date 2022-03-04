@@ -6,12 +6,15 @@ import { AppComponent } from './app.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { CategoryService } from './Services/CategoryService';
+
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { FormsModule } from '@angular/forms';
-import { UserService } from './Services/UserService';
-import { LoginUserStorage } from './StorageDataOfUser/LoginUserStorage';
+
+import { LegoByCategoryComponent } from './lego-by-category/lego-by-category.component';
+import { CategoryService } from './OtherLogic/Services/CategoryService';
+import { LegoService } from './OtherLogic/Services/LegoService';
+import { UserService } from './OtherLogic/Services/UserService';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +22,8 @@ import { LoginUserStorage } from './StorageDataOfUser/LoginUserStorage';
     HeaderComponent,
     CategoriesComponent,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    LegoByCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,7 @@ import { LoginUserStorage } from './StorageDataOfUser/LoginUserStorage';
     HttpClientModule, 
     FormsModule  
   ],
-  providers: [CategoryService, UserService],
+  providers: [CategoryService,LegoService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
