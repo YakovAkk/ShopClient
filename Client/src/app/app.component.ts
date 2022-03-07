@@ -7,9 +7,13 @@ import { Component, Output } from '@angular/core';
 })
 export class AppComponent {
   title = 'Client';
+  isShowSideBar : boolean = true
+  isHideSideBarFromLogin : boolean = true
+  isHideSideBarFromHeader : boolean = false
 
   isShowHeader: boolean = true
-  isShowSideBar : boolean = true
+  isShowLogin : boolean = false
+  isShowRegistration : boolean = false
 
   ShowSideBar() : void{
       this.isShowSideBar = !this.isShowSideBar
@@ -18,17 +22,41 @@ export class AppComponent {
     this.isShowHeader = !this.isShowHeader
   }
 
-  isShowLogin : boolean = false
+  hideSideBarFromHeader() : void{
+    this.isHideSideBarFromHeader = !this.isHideSideBarFromHeader
+    console.log( this.isHideSideBarFromHeader)
+    this.ShowSideBar()
+  }
+  
   ShowLogin() : void{
     this.isShowLogin = !this.isShowLogin
-    this.ShowSideBar()
+    if(this.isShowSideBar == true){
+      this.ShowSideBar()
+    }
     this.ShowHeader()
   }
 
-  isShowRegistration : boolean = false
+  
   ShowRegistration() : void{
     this.isShowRegistration = !this.isShowRegistration
-    this.ShowSideBar()
+    if(this.isShowSideBar == true){
+      this.ShowSideBar()
+    }
+    this.ShowHeader()
+  }
+
+  CloseLogin() : void{
+    this.isShowLogin = !this.isShowLogin
+    if(this.isHideSideBarFromHeader != true){
+      this.ShowSideBar()
+    }
+    this.ShowHeader()
+  }
+  CloseRegistration() : void {
+    this.isShowRegistration = !this.isShowRegistration
+    if(this.isHideSideBarFromHeader != true){
+      this.ShowSideBar()
+    }
     this.ShowHeader()
   }
 
