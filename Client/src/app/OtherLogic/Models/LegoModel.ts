@@ -1,13 +1,13 @@
 import { CategoryModel } from "./CategoryModel";
 
 export class LegoModel{
-    constructor(
-        Id : string | null,
-        Name : string,
-        ImageUrl : string,
-        Description : string,
-        Price : number,
-        isFavorite : boolean,
-        Category : CategoryModel
+    constructor( 
+        public  id : string | null,
+        public name : string,
+        public imageUrl : string,
+        public description : string,
+        public price : number,
+        public isFavorite : boolean,
+        public category : CategoryModel
     ){}
 }

@@ -90,7 +90,6 @@ export class LoginFormComponent implements OnInit {
      this.userPassword = ""
   }
 
-
   isShowIncorrectEmail : boolean = false
   MessageWhatIsIncorrectEmail : string = ""
   ShowIncorrectEmail(str : string) : void{
@@ -111,7 +110,4 @@ export class LoginFormComponent implements OnInit {
     this.MessageWhatIsIncorrectUser = str
     this.isShowIncorrectUser = true
   }
-
-
-
 }

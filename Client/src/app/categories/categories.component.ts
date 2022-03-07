@@ -16,6 +16,7 @@ export class CategoriesComponent implements OnInit {
   constructor(private _categoryService : CategoryService) { }
 
   CategoryResponse : any
+
   ngOnInit(): void {
     this._categoryService.getCategories().subscribe((response) => {
       this.CategoryResponse = response;
@@ -27,16 +28,18 @@ export class CategoriesComponent implements OnInit {
     })
   }
 
-  @Input()
   ChoosenCategory : CategoryModel = new CategoryModel(null,"","")
+
+  @Input()
+  isShowCategories : boolean = true
 
   @Output()
   onChooseCategory = new EventEmitter()
 
   OnClick(name : string) : void{
-     this.ChoosenCategory = this.Categories.filter(n => n.Name == name)[0]
-     this.onChooseCategory.emit()
-     // console.log(cat)
+     this.ChoosenCategory = this.Categories.filter(n => n.name == name)[0]
+     this.onChooseCategory.emit( this.ChoosenCategory)
+    //console.log(this.ChoosenCategory)
   }
 
 }

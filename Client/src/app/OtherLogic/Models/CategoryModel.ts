@@ -1,4 +1,4 @@
 export class CategoryModel{
-    constructor(public Id : string | null, public Name : string, public ImageUrl :string){
+    constructor(public id : string | null, public name : string, public imageUrl :string){
     }
 }

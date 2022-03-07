@@ -1,1 +1,14 @@
 
+<div [hidden]="!isShowLegoByCategory">
+    <h2>{{Category.name}}</h2>
+    <ul >
+        <li *ngFor = "let leg of Lego; let idx = index">
+            <div >
+              <h4>{{leg.name}} </h4>
+             <p></p>
+             <img src = {{leg.imageUrl}}  width="500"  height="500">
+             <p>{{leg.description}} </p>
+            </div>
+        </li>
+    </ul>
+</div>

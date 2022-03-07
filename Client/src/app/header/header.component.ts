@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CategoryModel } from '../OtherLogic/Models/CategoryModel';
+import { LegoModel } from '../OtherLogic/Models/LegoModel';
 import { UserLogin } from '../OtherLogic/Models/UserLogin';
 import { UserModel } from '../OtherLogic/Models/UserModel';
+import { LegoService } from '../OtherLogic/Services/LegoService';
 import { UserService } from '../OtherLogic/Services/UserService';
 import { LoginUserStorage } from '../OtherLogic/StorageDataOfUser/LoginUserStorage';
 
@@ -41,7 +43,7 @@ export class HeaderComponent implements OnInit {
     this.isShowRegistration = !this.isShowRegistration;
     this.onShowRegistration.emit()
   }
-  constructor(private readonly _userService : UserService) { }
+  constructor(private readonly _userService : UserService, private readonly _legoService : LegoService) { }
   
   @Input()
   public isLoginUser : boolean = true
@@ -59,10 +61,30 @@ export class HeaderComponent implements OnInit {
     }) 
   }
 
-  ShowCategory : CategoryModel = new CategoryModel(null,"","") 
 
-  ChooseCategory() : void{
+  AllLego : Array<LegoModel> = []
+  LegoByCategory : Array<LegoModel> = []
+  UserChooseCategory : CategoryModel = new CategoryModel(null,"","")
 
+  isShowLegobyCategory : boolean = false
+  isShowCategories : boolean = true
+  LegoResponce : any
+
+  ChooseCategory(category: CategoryModel) : void{
+    this.isShowCategories = !this.isShowCategories
+    this.isShowLegobyCategory = !this.isShowLegobyCategory
+
+    this.UserChooseCategory = category
+    this._legoService.getAllLego().subscribe((response) => {
+      this.LegoResponce = response;
+      this.LegoResponce.forEach((element: LegoModel) => {
+        this.AllLego.push(element)
+      });
+      this.LegoByCategory = this.AllLego.filter(l => l.category.name == category.name)    
+   }) 
   }
+
+
+
 
 }
