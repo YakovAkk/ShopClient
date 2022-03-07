@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,7 @@ export class AppComponent {
   isShowSideBar : boolean = true
 
   ShowSideBar() : void{
-    this.isShowSideBar = !this.isShowSideBar
+      this.isShowSideBar = !this.isShowSideBar
   }
   ShowHeader() : void{
     this.isShowHeader = !this.isShowHeader
@@ -35,6 +35,22 @@ export class AppComponent {
   isShowBasketaAndLogoutButton : boolean = true
   onLogin() : void{
     this.isShowBasketaAndLogoutButton = !this.isShowBasketaAndLogoutButton
+  }
+
+  isShowLegoByCategory : boolean = false
+  isShowCategories : boolean = true
+
+  OnHomeClick(){
+    if(this.isShowCategories != true){
+      this.isShowCategories = !this.isShowCategories
+      this.isShowLegoByCategory = !this.isShowLegoByCategory
+    }
+    
+  }
+
+  ClickBuy(){
+    this.isShowCategories = !this.isShowCategories
+    this.isShowLegoByCategory = !this.isShowLegoByCategory
   }
 
 }

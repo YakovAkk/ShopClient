@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-side-bar',
@@ -12,6 +12,13 @@ export class SideBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  @Output()
+  HomeClickEvent = new EventEmitter() 
+
+  OnHomeClick(){
+    this.HomeClickEvent.emit()
   }
 
 }

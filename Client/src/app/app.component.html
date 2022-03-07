@@ -1,8 +1,10 @@
 
 
 <app-header (onShowSideBar)="ShowSideBar()" (onShowLogin)="ShowLogin()"
- (onShowRegistration)="ShowRegistration()" [isShowComponent] = "isShowHeader" [isLoginUser] = "isShowBasketaAndLogoutButton"></app-header>
-<app-side-bar [isShowSideBar]="isShowSideBar" ></app-side-bar>
+ (onShowRegistration)="ShowRegistration()" [isShowComponent] = "isShowHeader"
+  [isLoginUser] = "isShowBasketaAndLogoutButton" [isShowCategories]="isShowCategories" 
+  [isShowLegobyCategory]="isShowLegoByCategory" (OnClickBuy)="ClickBuy()"></app-header>
+<app-side-bar [isShowSideBar]="isShowSideBar" (HomeClickEvent)="OnHomeClick()" ></app-side-bar>
 
 <!--------------------------------------- test ------------------------------------------------------>
 

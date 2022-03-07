@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   isShowComponent : boolean = true
   isShowSideBar : boolean = false
   isShowLogin : boolean = false
+
   @Output()
   onShowSideBar = new EventEmitter() 
 
@@ -66,9 +67,14 @@ export class HeaderComponent implements OnInit {
   LegoByCategory : Array<LegoModel> = []
   UserChooseCategory : CategoryModel = new CategoryModel(null,"","")
 
+  @Input()
   isShowLegobyCategory : boolean = false
+  @Input()
   isShowCategories : boolean = true
   LegoResponce : any
+
+  @Output()
+  OnClickBuy = new EventEmitter()
 
   ChooseCategory(category: CategoryModel) : void{
     this.isShowCategories = !this.isShowCategories
@@ -77,14 +83,12 @@ export class HeaderComponent implements OnInit {
     this.UserChooseCategory = category
     this._legoService.getAllLego().subscribe((response) => {
       this.LegoResponce = response;
+      this.AllLego = []
       this.LegoResponce.forEach((element: LegoModel) => {
         this.AllLego.push(element)
       });
       this.LegoByCategory = this.AllLego.filter(l => l.category.name == category.name)    
    }) 
+   this.OnClickBuy.emit()
   }
-
-
-
-
 }
