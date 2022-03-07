@@ -91,4 +91,7 @@ export class HeaderComponent implements OnInit {
    }) 
    this.OnClickBuy.emit()
   }
+
+  @Input()
+  isShowTrendsLego : boolean = false
 }

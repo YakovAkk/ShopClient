@@ -73,7 +73,6 @@ export class AppComponent {
       this.isShowCategories = !this.isShowCategories
       this.isShowLegoByCategory = !this.isShowLegoByCategory
     }
-    
   }
 
   ClickBuy(){
@@ -81,4 +80,11 @@ export class AppComponent {
     this.isShowLegoByCategory = !this.isShowLegoByCategory
   }
 
+  isShowTrendsLego : boolean = false
+  OnTrendClick(){
+    if(this.isShowCategories == true){
+      this.isShowCategories = !this.isShowCategories
+      this.isShowTrendsLego = !this.isShowTrendsLego
+    }
+  }
 }

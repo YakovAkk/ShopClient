@@ -20,5 +20,9 @@ export class SideBarComponent implements OnInit {
   OnHomeClick(){
     this.HomeClickEvent.emit()
   }
-
+  @Output()
+  TrendClickEvent = new EventEmitter() 
+  OnTrendiClick(){
+    this.TrendClickEvent.emit()
+  }
 }
