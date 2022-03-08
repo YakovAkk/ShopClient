@@ -1,4 +1,6 @@
 import { Component, Output } from '@angular/core';
+import { LegoModel } from './OtherLogic/Models/LegoModel';
+import { LegoService } from './OtherLogic/Services/LegoService';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +8,10 @@ import { Component, Output } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(private readonly _legoService : LegoService){
+    
+  }
   title = 'Client';
   isShowSideBar : boolean = true
   isHideSideBarFromLogin : boolean = true
@@ -67,24 +73,35 @@ export class AppComponent {
 
   isShowLegoByCategory : boolean = false
   isShowCategories : boolean = true
+  isShowTrendsLego : boolean = false
 
   OnHomeClick(){
-    if(this.isShowCategories != true){
-      this.isShowCategories = !this.isShowCategories
-      this.isShowLegoByCategory = !this.isShowLegoByCategory
-    }
+    this.isShowCategories = true
+    this.isShowTrendsLego = false
+    this.isShowLegoByCategory = false
   }
 
   ClickBuy(){
-    this.isShowCategories = !this.isShowCategories
-    this.isShowLegoByCategory = !this.isShowLegoByCategory
+    this.isShowCategories = false
+    this.isShowTrendsLego = false
+    this.isShowLegoByCategory = true
   }
 
-  isShowTrendsLego : boolean = false
+  AllLego : Array<LegoModel> = []
+  LegoByFavorite : Array<LegoModel> = []
+  LegoResponce : any
   OnTrendClick(){
-    if(this.isShowCategories == true){
-      this.isShowCategories = !this.isShowCategories
-      this.isShowTrendsLego = !this.isShowTrendsLego
-    }
+    this._legoService.getAllLego().subscribe((response) => {
+      this.LegoResponce = response;
+      this.AllLego = []
+      this.LegoResponce.forEach((element: LegoModel) => {
+        this.AllLego.push(element)
+      });
+      this.LegoByFavorite = this.AllLego.filter(l => l.isFavorite)    
+   })
+    this.isShowCategories = false
+    this.isShowTrendsLego = true
+    this.isShowLegoByCategory = false
   }
+ 
 }

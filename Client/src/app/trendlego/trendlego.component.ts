@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { LegoModel } from '../OtherLogic/Models/LegoModel';
 
 @Component({
@@ -16,7 +16,6 @@ export class TrendlegoComponent implements OnInit {
   
   constructor() { }
 
-  
   ngOnInit(): void {
   }
 

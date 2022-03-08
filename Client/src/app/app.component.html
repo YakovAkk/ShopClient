@@ -4,8 +4,10 @@
  (onShowRegistration)="ShowRegistration()" [isShowComponent] = "isShowHeader"
   [isLoginUser] = "isShowBasketaAndLogoutButton" [isShowCategories]="isShowCategories" 
   [isShowLegobyCategory]="isShowLegoByCategory" (OnClickBuy)="ClickBuy()"
-  [isShowTrendsLego]="isShowTrendsLego"></app-header>
-<app-side-bar [isShowSideBar]="isShowSideBar" (HomeClickEvent)="OnHomeClick()" (TrendClickEvent)="OnTrendClick()"></app-side-bar>
+  [isShowTrendsLego]="isShowTrendsLego" [legoForTernds]="LegoByFavorite"></app-header>
+<app-side-bar [isShowSideBar]="isShowSideBar" 
+(HomeClickEvent)="OnHomeClick()" 
+(TrendClickEvent)="OnTrendClick()"></app-side-bar>
 
 <!--------------------------------------- test ------------------------------------------------------>
 

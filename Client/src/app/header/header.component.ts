@@ -73,6 +73,9 @@ export class HeaderComponent implements OnInit {
   isShowCategories : boolean = true
   LegoResponce : any
 
+  @Input()
+  isShowTrendsLego : boolean = false
+
   @Output()
   OnClickBuy = new EventEmitter()
 
@@ -93,5 +96,6 @@ export class HeaderComponent implements OnInit {
   }
 
   @Input()
-  isShowTrendsLego : boolean = false
+  legoForTernds : Array<LegoModel> = []
+
 }
