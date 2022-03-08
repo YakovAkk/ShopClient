@@ -75,13 +75,13 @@ export class AppComponent {
   isShowCategories : boolean = true
   isShowTrendsLego : boolean = false
 
-  OnHomeClick(){
+  OnHomeClick(): void{
     this.isShowCategories = true
     this.isShowTrendsLego = false
     this.isShowLegoByCategory = false
   }
 
-  ClickBuy(){
+  ClickBuy(): void{
     this.isShowCategories = false
     this.isShowTrendsLego = false
     this.isShowLegoByCategory = true
@@ -90,7 +90,7 @@ export class AppComponent {
   AllLego : Array<LegoModel> = []
   LegoByFavorite : Array<LegoModel> = []
   LegoResponce : any
-  OnTrendClick(){
+  OnTrendClick(): void{
     this._legoService.getAllLego().subscribe((response) => {
       this.LegoResponce = response;
       this.AllLego = []
@@ -104,4 +104,23 @@ export class AppComponent {
     this.isShowLegoByCategory = false
   }
  
+  isShowBasket : boolean = false
+  ShowBasket() : void{ 
+    this.isShowHeader = false
+    this.isShowSideBar = false
+    this.isShowCategories = false
+    this.isShowTrendsLego = false
+    this.isShowLegoByCategory = false
+    this.isShowBasket = true
+  }
+
+  CloseBasket(){
+    this.isShowBasket = false
+    this.isShowHeader = true
+    if(this.isHideSideBarFromHeader != true){
+      this.ShowSideBar()
+    }
+    
+    this.isShowCategories = true
+  }
 }

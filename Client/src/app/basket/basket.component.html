@@ -1,0 +1,14 @@
+<div [hidden]="!isShowComponent" class="block">
+    <div class = "center">
+        <h1>Basket:</h1>
+        <div class="cl-btn-7" (click)="OnCloseBasket()"></div>
+        <ul class="block" >
+            <li *ngFor = "let category of LegoInBasket; let idx = index">
+                <div >
+                    
+                </div>
+            </li>
+        </ul>
+    </div>
+   
+</div>

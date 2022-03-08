@@ -16,6 +16,7 @@ import { CategoryService } from './OtherLogic/Services/CategoryService';
 import { LegoService } from './OtherLogic/Services/LegoService';
 import { UserService } from './OtherLogic/Services/UserService';
 import { TrendlegoComponent } from './trendlego/trendlego.component';
+import { BasketComponent } from './basket/basket.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { TrendlegoComponent } from './trendlego/trendlego.component';
     LoginFormComponent,
     RegisterFormComponent,
     LegoByCategoryComponent,
-    TrendlegoComponent
+    TrendlegoComponent,
+    BasketComponent
   ],
   imports: [
     BrowserModule,

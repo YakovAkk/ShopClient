@@ -98,4 +98,13 @@ export class HeaderComponent implements OnInit {
   @Input()
   legoForTernds : Array<LegoModel> = []
 
+  @Output()
+  OnBasketEvent = new EventEmitter()
+  
+  OnClickBasket(){
+    this.OnBasketEvent.emit()
+  }
+
+
+  
 }

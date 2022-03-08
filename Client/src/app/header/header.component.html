@@ -22,7 +22,7 @@
                         <li><button class="sp-btn" (click)="ShowLogin()" [hidden]="!isLoginUser">Log in</button></li>
                         <li><button class="sp-btn-white" (click)="ShowRegistration()" [hidden]="!isLoginUser">Sign up</button></li>
                         <li><button class="sp-btn" [hidden]="isLoginUser" (click)="Logout()">Logout</button></li>
-                        <li><button class="sp-btn-white" [hidden]="isLoginUser">Basket</button></li>
+                        <li><button class="sp-btn-white" [hidden]="isLoginUser" (click)="OnClickBasket()">Basket</button></li>
 
                     </ul>
                 </nav>
