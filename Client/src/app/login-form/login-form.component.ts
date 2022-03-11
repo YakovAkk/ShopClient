@@ -16,7 +16,7 @@ export class LoginFormComponent implements OnInit {
 
   private _userStorage : LoginUserStorage = LoginUserStorage.getInstance()
   @Input()
-  isShowComponent : boolean = false
+  isShowComponent = false
 
   @Output()
   onClose = new EventEmitter() 
@@ -36,9 +36,9 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  userEmail : string = ""
-  userPassword : string = ""
-  userRememberMe : boolean = false
+  userEmail = ""
+  userPassword  = ""
+  userRememberMe  = false
 
   Checked(){
     this.userRememberMe = !this.userRememberMe
@@ -58,7 +58,7 @@ export class LoginFormComponent implements OnInit {
       return
     }
 
-    let user : UserLogin = new UserLogin(this.userEmail,this.userPassword,this.userRememberMe)
+    let user = new UserLogin(this.userEmail,this.userPassword,this.userRememberMe)
 
      console.log(user)
       this._userService.LoginUser(user).subscribe((response) => {
@@ -70,12 +70,6 @@ export class LoginFormComponent implements OnInit {
         return
       }
 
-      console.log("Login was successed!")
-      // console.log("responce : " + this.LoginResponse)
-      // console.log(this.LoginResponse.email)
-      // console.log(this.LoginResponse.nickName)
-      // console.log(this.LoginResponse.rememberMe)
-
       this._userStorage.setUser(new UserModel(this.LoginResponse.nickName,
         this.LoginResponse.email,this.LoginResponse.rememberMe))
 
@@ -83,6 +77,8 @@ export class LoginFormComponent implements OnInit {
       this.onLogin.emit()
       this.onClose.emit()
        
+      console.log("Responce :" , this.LoginResponse.header);
+      
        
     })
     
@@ -90,21 +86,21 @@ export class LoginFormComponent implements OnInit {
      this.userPassword = ""
   }
 
-  isShowIncorrectEmail : boolean = false
-  MessageWhatIsIncorrectEmail : string = ""
+  isShowIncorrectEmail = false
+  MessageWhatIsIncorrectEmail = ""
   ShowIncorrectEmail(str : string) : void{
     this.MessageWhatIsIncorrectEmail = str
     this.isShowIncorrectEmail = true
   }
 
-  isShowIncorrectPassword : boolean = false
-  MessageWhatIsIncorrectPassword : string = ""
+  isShowIncorrectPassword = false
+  MessageWhatIsIncorrectPassword  = ""
   ShowIncorrectPassword(str : string) : void{
     this.MessageWhatIsIncorrectPassword = str
     this.isShowIncorrectPassword = true
   }
 
-  isShowIncorrectUser : boolean = false
+  isShowIncorrectUser = false
   MessageWhatIsIncorrectUser : string = ""
   ShowIncorrectUser(str : string) : void{
     this.MessageWhatIsIncorrectUser = str

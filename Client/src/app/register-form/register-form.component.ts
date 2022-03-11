@@ -12,7 +12,7 @@ export class RegisterFormComponent implements OnInit {
 
   RegistrationResponse : any
   @Input()
-  isShowComponent : boolean = false
+  isShowComponent = false
   constructor(private readonly _userService : UserService) { }
 
 
@@ -27,10 +27,10 @@ export class RegisterFormComponent implements OnInit {
   }
 
 
-  userName : string = ""
-  userEmail : string = ""
-  userPassword : string = ""
-  userConfirmPassword : string = ""
+  userName = ""
+  userEmail = ""
+  userPassword = ""
+  userConfirmPassword = ""
 
   OnClick(){
     this.ShowIncorrectEmail("")
@@ -54,7 +54,7 @@ export class RegisterFormComponent implements OnInit {
 
     
 
-    let user : UserRegistration = new UserRegistration(this.userName, this.userEmail,this.userPassword)
+    let user = new UserRegistration(this.userName, this.userEmail,this.userPassword)
 
     console.log(user)
      this._userService.RegistrationUser(user).subscribe((response) => {
@@ -85,28 +85,28 @@ export class RegisterFormComponent implements OnInit {
 
 
 
-  isShowIncorrectEmail : boolean = false
-  MessageWhatIsIncorrectEmail : string = ""
+  isShowIncorrectEmail = false
+  MessageWhatIsIncorrectEmail = ""
   ShowIncorrectEmail(str : string) : void{
     this.MessageWhatIsIncorrectEmail = str
     this.isShowIncorrectEmail = true
   }
 
-  isShowIncorrectPassword : boolean = false
-  MessageWhatIsIncorrectPassword : string = ""
+  isShowIncorrectPassword = false
+  MessageWhatIsIncorrectPassword = ""
   ShowIncorrectPassword(str : string) : void{
     this.MessageWhatIsIncorrectPassword = str
     this.isShowIncorrectPassword = true
   }
 
-  isShowIncorrectPasswordNotEqual : boolean = false
-  MessageWhatIsIncorrectPasswordNotEqual : string = ""
+  isShowIncorrectPasswordNotEqual = false
+  MessageWhatIsIncorrectPasswordNotEqual = ""
   ShowIncorrectPasswordNotEqual(str : string) : void{
     this.MessageWhatIsIncorrectPasswordNotEqual = str
     this.isShowIncorrectPasswordNotEqual = true
   }
 
-  isShowIncorrectUser : boolean = false
+  isShowIncorrectUser = false
   MessageWhatIsIncorrectUser : string = ""
   ShowIncorrectUser(str : string) : void{
     this.MessageWhatIsIncorrectUser = str

@@ -9,7 +9,7 @@ import { LegoModel } from '../OtherLogic/Models/LegoModel';
 export class BasketComponent implements OnInit {
 
   @Input()
-  isShowComponent : boolean = false
+  isShowComponent = false
 
   LegoInBasket : Array<LegoModel> = []
 

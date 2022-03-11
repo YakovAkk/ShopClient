@@ -28,10 +28,10 @@ export class CategoriesComponent implements OnInit {
     })
   }
 
-  ChoosenCategory : CategoryModel = new CategoryModel(null,"","")
+  ChoosenCategory = new CategoryModel(null,"","")
 
   @Input()
-  isShowCategories : boolean = true
+  isShowCategories = true
 
   @Output()
   onChooseCategory = new EventEmitter()

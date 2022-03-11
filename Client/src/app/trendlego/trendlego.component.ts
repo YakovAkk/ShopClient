@@ -9,7 +9,7 @@ import { LegoModel } from '../OtherLogic/Models/LegoModel';
 export class TrendlegoComponent implements OnInit {
 
   @Input()
-  isShowTrendLego : boolean = false
+  isShowTrendLego = false
 
   @Input()
   Lego : Array<LegoModel> = []
@@ -18,5 +18,11 @@ export class TrendlegoComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  OnBuyClick(item : LegoModel){
+    // lego is written in database
+    console.log("lego is written in database");
+    
+  }
+
 
 }

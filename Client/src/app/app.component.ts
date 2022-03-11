@@ -30,7 +30,6 @@ export class AppComponent {
 
   hideSideBarFromHeader() : void{
     this.isHideSideBarFromHeader = !this.isHideSideBarFromHeader
-    console.log( this.isHideSideBarFromHeader)
     this.ShowSideBar()
   }
   

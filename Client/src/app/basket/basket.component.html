@@ -3,9 +3,9 @@
         <h1>Basket:</h1>
         <div class="cl-btn-7" (click)="OnCloseBasket()"></div>
         <ul class="block" >
-            <li *ngFor = "let category of LegoInBasket; let idx = index">
-                <div >
-                    
+            <li *ngFor = "let leg of LegoInBasket; let idx = index">
+                <div>
+                    <p> Name : {{leg.name}}</p>
                 </div>
             </li>
         </ul>

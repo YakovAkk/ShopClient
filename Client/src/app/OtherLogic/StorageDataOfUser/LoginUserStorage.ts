@@ -1,18 +1,18 @@
 
 import { UserModel } from "../Models/UserModel";
 export class LoginUserStorage {
-    private static instance: LoginUserStorage;
+    private static instance : LoginUserStorage
     private constructor() { }
 
     public static getInstance(): LoginUserStorage {
         if (!LoginUserStorage.instance) {
-            LoginUserStorage.instance = new LoginUserStorage();
+            LoginUserStorage.instance = new LoginUserStorage()
         }
 
         return LoginUserStorage.instance;
     }
 
-    private user : UserModel = new UserModel("","",false)
+    private user = new UserModel("","",false)
 
     isUserEmpty() : boolean{
         if(this.user == new UserModel("","",false)){

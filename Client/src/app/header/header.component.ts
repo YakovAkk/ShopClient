@@ -16,9 +16,9 @@ import { LoginUserStorage } from '../OtherLogic/StorageDataOfUser/LoginUserStora
 export class HeaderComponent implements OnInit {
   public _userStorage : LoginUserStorage = LoginUserStorage.getInstance()
   @Input()
-  isShowComponent : boolean = true
-  isShowSideBar : boolean = false
-  isShowLogin : boolean = false
+  isShowComponent  = true
+  isShowSideBar  = false
+  isShowLogin  = false
 
   @Output()
   onShowSideBar = new EventEmitter() 
@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
     this.onShowLogin.emit()
   }
 
-  isShowRegistration : boolean = false
+  isShowRegistration = false
   @Output()
   onShowRegistration = new EventEmitter() 
 
@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit {
   constructor(private readonly _userService : UserService, private readonly _legoService : LegoService) { }
   
   @Input()
-  public isLoginUser : boolean = true
+  public isLoginUser = true
 
   
   ngOnInit(): void {
@@ -65,16 +65,16 @@ export class HeaderComponent implements OnInit {
 
   AllLego : Array<LegoModel> = []
   LegoByCategory : Array<LegoModel> = []
-  UserChooseCategory : CategoryModel = new CategoryModel(null,"","")
+  UserChooseCategory = new CategoryModel(null,"","")
 
   @Input()
-  isShowLegobyCategory : boolean = false
+  isShowLegobyCategory = false
   @Input()
-  isShowCategories : boolean = true
+  isShowCategories = true
   LegoResponce : any
 
   @Input()
-  isShowTrendsLego : boolean = false
+  isShowTrendsLego = false
 
   @Output()
   OnClickBuy = new EventEmitter()
@@ -105,6 +105,4 @@ export class HeaderComponent implements OnInit {
     this.OnBasketEvent.emit()
   }
 
-
-  
 }

@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class SideBarComponent implements OnInit {
 
   @Input()
-  isShowSideBar : boolean = true
+  isShowSideBar = true
   constructor() { }
 
   ngOnInit(): void {

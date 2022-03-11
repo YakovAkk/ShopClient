@@ -17,6 +17,7 @@ import { LegoService } from './OtherLogic/Services/LegoService';
 import { UserService } from './OtherLogic/Services/UserService';
 import { TrendlegoComponent } from './trendlego/trendlego.component';
 import { BasketComponent } from './basket/basket.component';
+import { BasketService } from './OtherLogic/Services/BasketService';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,7 @@ import { BasketComponent } from './basket/basket.component';
     HttpClientModule, 
     FormsModule  
   ],
-  providers: [CategoryService,LegoService,UserService],
+  providers: [CategoryService,LegoService,UserService , BasketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
