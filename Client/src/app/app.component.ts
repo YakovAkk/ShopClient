@@ -1,6 +1,10 @@
 import { Component, Output } from '@angular/core';
+import { AddLegToBaketModel } from './OtherLogic/Models/AddLegToBaketModel';
+import { ItemInBasketDTO } from './OtherLogic/Models/ItemInBasketDTO';
 import { LegoModel } from './OtherLogic/Models/LegoModel';
+import { BasketService } from './OtherLogic/Services/BasketService';
 import { LegoService } from './OtherLogic/Services/LegoService';
+import { LoginUserStorage } from './OtherLogic/StorageDataOfUser/LoginUserStorage';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +13,7 @@ import { LegoService } from './OtherLogic/Services/LegoService';
 })
 export class AppComponent {
 
-  constructor(private readonly _legoService : LegoService){
+  constructor(private readonly _legoService : LegoService ,private readonly _basketService : BasketService ){
     
   }
   title = 'Client';
@@ -104,7 +108,30 @@ export class AppComponent {
   }
  
   isShowBasket : boolean = false
-  ShowBasket() : void{ 
+  BasketRespoce : any
+  ItemsInBasket : Array<ItemInBasketDTO> = []
+  ItemForAddedInBasker : Array<AddLegToBaketModel> = []
+  private readonly _userStorage  = LoginUserStorage.getInstance()
+  ShowBasket() : void{
+    this.ItemsInBasket = []
+    this.ItemForAddedInBasker = []
+    let user = this._userStorage.getUser()
+    this._basketService.getAllItemsFromBasket().subscribe(respoce => {
+      this.BasketRespoce = respoce
+      console.log("Responce : ", this.BasketRespoce);
+      for (let item of this.BasketRespoce) {
+        console.log("item : ", item);
+        this.ItemForAddedInBasker.push(new AddLegToBaketModel (item.lego, item.user.email,item.amount))
+     }
+     console.log( "ItemForAddedInBasker " ,this.ItemForAddedInBasker);
+     for (let item of this.ItemForAddedInBasker) {
+       if(user.Email == item.userEmail){
+         this.ItemsInBasket.push(new ItemInBasketDTO(item.lego , item.amount))
+       } 
+    }
+    console.log(this.ItemsInBasket);
+    })
+
     this.isShowHeader = false
     this.isShowSideBar = false
     this.isShowCategories = false

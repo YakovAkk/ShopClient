@@ -40,15 +40,14 @@ export class LegoByCategoryComponent implements OnInit {
       this._basketService.additemToBasket(AddToBaskretItem).subscribe((response) => {
         this.BasketResponse = response;
         
-        console.log("Item : " ,AddToBaskretItem);
-
-        console.log("Responce Basket : " ,this.BasketResponse);
+        // console.log("Item : " ,AddToBaskretItem);
+        // console.log("Responce Basket : " ,this.BasketResponse);
+        alert(item.name + "was written in database")
       })
     }
-   
     
     // lego is written in database
-    console.log("lego is written in database");
+    //console.log("lego is written in database");
     
   }
 

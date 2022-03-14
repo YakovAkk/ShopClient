@@ -63,7 +63,7 @@ export class LoginFormComponent implements OnInit {
     let user = new UserLogin(this.userEmail,this.userPassword,this.userRememberMe)
 
       this._userService.LoginUser(user).subscribe((response : any)  => {
-        console.log("Responce :" , response);
+       // console.log("Responce :" , response);
        //console.log("Responce :" , response.headers.get('set-cookie'));
       this.LoginResponse = response;
       
@@ -81,7 +81,7 @@ export class LoginFormComponent implements OnInit {
       alert("Welcome!")
       this.onLogin.emit()
       this.onClose.emit()
-      console.log("cookie : ", this._cookieService.get('.AspNetCore.Identity.Application'));
+      //console.log("cookie : ", this._cookieService.get('.AspNetCore.Identity.Application'));
       
     })
     
