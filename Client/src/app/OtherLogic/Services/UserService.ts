@@ -11,7 +11,7 @@ export class UserService{
     }
 
     LoginUser( userLogin : UserLogin) : Observable<Object>{
-        return this.http.post(this.url + '/Login',userLogin)
+        return this.http.post(this.url + '/Login',userLogin,{withCredentials: true})
     }
     RegistrationUser(userRegistration : UserRegistration): Observable<Object>{
         return this.http.post(this.url + '/Register',userRegistration)

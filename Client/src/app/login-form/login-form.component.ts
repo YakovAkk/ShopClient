@@ -74,8 +74,8 @@ export class LoginFormComponent implements OnInit {
         return
       }
 
-      this._userStorage.setUser(new UserModel(this.LoginResponse.user.nickName,
-        this.LoginResponse.user.email,this.LoginResponse.user.rememberMe))
+      this._userStorage.setUser(new UserModel(this.LoginResponse.nickName,
+        this.LoginResponse.email,this.LoginResponse.rememberMe))
 
 
       alert("Welcome!")
