@@ -81,11 +81,8 @@ export class LoginFormComponent implements OnInit {
       alert("Welcome!")
       this.onLogin.emit()
       this.onClose.emit()
-      //console.log("cookie : ", this._cookieService.get('.AspNetCore.Identity.Application'));
+      console.log("cookie : ", this._cookieService.get('.AspNetCore.Identity.Application'));
       
-      
-      
-       
     })
     
      this.userEmail = ""

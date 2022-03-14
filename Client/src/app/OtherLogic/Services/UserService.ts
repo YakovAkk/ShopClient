@@ -6,8 +6,7 @@ import { UserRegistration } from '../Models/UserRegistration';
 @Injectable()
 export class UserService{
     private readonly url : string = 'https://localhost:7284/api/Account'
-    constructor (private readonly http : HttpClient){
-        
+    constructor (private readonly http : HttpClient){     
     }
 
     LoginUser( userLogin : UserLogin) : Observable<Object>{

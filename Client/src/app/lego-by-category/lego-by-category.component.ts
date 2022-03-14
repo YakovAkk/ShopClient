@@ -35,11 +35,13 @@ export class LegoByCategoryComponent implements OnInit {
       alert("Login please!")
     }
     else{
-      let AddToBaskretItem = new AddLegToBaketModel(item,user)
+      let AddToBaskretItem = new AddLegToBaketModel(item,user.Email)
       console.log(AddToBaskretItem);
       this._basketService.additemToBasket(AddToBaskretItem).subscribe((response) => {
         this.BasketResponse = response;
         
+        console.log("Item : " ,AddToBaskretItem);
+
         console.log("Responce Basket : " ,this.BasketResponse);
       })
     }

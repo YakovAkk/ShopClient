@@ -9,9 +9,9 @@ export class BasketService {
     }
 
     getAllItemsFromBasket() : Observable<Object>{
-        return this.http.get('https://localhost:7284/api/Basket/all');
+        return this.http.get('https://localhost:7284/api/Basket/all',{withCredentials: true});
     }
     additemToBasket(item : AddLegToBaketModel) : Observable<Object>{
-        return this.http.post('https://localhost:7284/api/Basket' , item);
+        return this.http.post('https://localhost:7284/api/Basket' , item,{withCredentials: true});
     }
 }
