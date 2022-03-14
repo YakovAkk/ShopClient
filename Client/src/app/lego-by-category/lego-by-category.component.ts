@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { AddLegToBaketModel } from '../OtherLogic/Models/AddLegToBaketModel';
 import { CategoryModel } from '../OtherLogic/Models/CategoryModel';
 import { LegoModel } from '../OtherLogic/Models/LegoModel';
@@ -21,7 +22,7 @@ export class LegoByCategoryComponent implements OnInit {
   @Input()
   Lego : Array<LegoModel> = []
 
-  constructor(private readonly _basketService : BasketService) { }
+  constructor(private readonly _basketService : BasketService ) { }
 
   ngOnInit(): void {
   }
@@ -38,7 +39,8 @@ export class LegoByCategoryComponent implements OnInit {
       console.log(AddToBaskretItem);
       this._basketService.additemToBasket(AddToBaskretItem).subscribe((response) => {
         this.BasketResponse = response;
-        console.log(this.BasketResponse);
+        
+        console.log("Responce Basket : " ,this.BasketResponse);
       })
     }
    

@@ -1,5 +1,7 @@
 
+import { HttpResponse } from '@angular/common/http';
 import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { UserLogin } from '../OtherLogic/Models/UserLogin';
 import { UserModel } from '../OtherLogic/Models/UserModel';
 import { UserService } from '../OtherLogic/Services/UserService';
@@ -31,7 +33,7 @@ export class LoginFormComponent implements OnInit {
 
   LoginResponse : any
 
-  constructor(private readonly _userService : UserService) { }
+  constructor(private readonly _userService : UserService , private readonly _cookieService : CookieService) { }
 
   ngOnInit(): void {
   }
@@ -60,9 +62,11 @@ export class LoginFormComponent implements OnInit {
 
     let user = new UserLogin(this.userEmail,this.userPassword,this.userRememberMe)
 
-     console.log(user)
-      this._userService.LoginUser(user).subscribe((response) => {
+      this._userService.LoginUser(user).subscribe((response : any)  => {
+        console.log("Responce :" , response);
+       //console.log("Responce :" , response.headers.get('set-cookie'));
       this.LoginResponse = response;
+      
 
       if(this.LoginResponse == null){
         this.ShowIncorrectUser("Incorrect email or password. If you haven't account , you can register.")
@@ -70,14 +74,16 @@ export class LoginFormComponent implements OnInit {
         return
       }
 
-      this._userStorage.setUser(new UserModel(this.LoginResponse.nickName,
-        this.LoginResponse.email,this.LoginResponse.rememberMe))
+      this._userStorage.setUser(new UserModel(this.LoginResponse.user.nickName,
+        this.LoginResponse.user.email,this.LoginResponse.user.rememberMe))
+
 
       alert("Welcome!")
       this.onLogin.emit()
       this.onClose.emit()
-       
-      console.log("Responce :" , this.LoginResponse.header);
+      //console.log("cookie : ", this._cookieService.get('.AspNetCore.Identity.Application'));
+      
+      
       
        
     })
