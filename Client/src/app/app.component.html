@@ -14,4 +14,9 @@
 <app-register-form [isShowComponent] = "isShowRegistration" (onClose)="CloseRegistration()"></app-register-form>
 <app-login-form  [isShowComponent] = "isShowLogin" (onClose)="CloseLogin()" (onLogin)="onLogin()"></app-login-form>  
 
-<app-basket [isShowComponent]="isShowBasket" (CloseBasket)="CloseBasket()" [ItemsInBasket]="ItemsInBasket"></app-basket>
+<app-basket 
+[isShowComponent]="isShowBasket" 
+(CloseBasket)="CloseBasket()" 
+[ItemsInBasket]="ItemForAddedInBasker"
+(OnDeleteItemFromBasket)="DeleteItemFromBasket($event)"
+></app-basket>

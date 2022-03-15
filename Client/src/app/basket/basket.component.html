@@ -1,11 +1,27 @@
 <div [hidden]="!isShowComponent" class="block">
     <div class = "center">
-        <h1>Basket:</h1>
+        <h1>Shoping cart:</h1>
         <div class="cl-btn-7" (click)="OnCloseBasket()"></div>
-        <ul class="block" >
+        <ul class="list">
             <li *ngFor = "let item of ItemsInBasket; let idx = index">
-                <div>
-                    <p> Name : {{item.lego.name}}</p>
+                <div class = "basketsItem">
+                    <img src = {{item.lego.imageUrl}}  width="100"  height="100">
+                    <div class="ButtonAndInfo">
+                        <div class="PriceAndNameBlock">
+                            <p>{{item.lego.name}}</p>
+                            <p> Price : {{item.lego.price}} $</p>
+                        </div>
+                        <button (click)="onDeleteFromBasket(item)">
+                            <span class = "icon">
+                                <span class="top"></span>
+                                <span class="bottom"></span>
+                            </span>
+                            <span class = "text">
+                                DELETE
+                            </span>
+                        </button>
+                    </div>
+                    
                 </div>
             </li>
         </ul>

@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ItemInBasketDTO } from '../OtherLogic/Models/ItemInBasketDTO';
-import { LegoModel } from '../OtherLogic/Models/LegoModel';
+import { AddLegToBaketModel } from '../OtherLogic/Models/AddLegToBaketModel';
 
 @Component({
   selector: 'app-basket',
@@ -13,7 +12,7 @@ export class BasketComponent implements OnInit {
   isShowComponent = false
 
   @Input()
-  ItemsInBasket : Array<ItemInBasketDTO> = []
+  ItemsInBasket : Array<AddLegToBaketModel> = []
 
   constructor() { }
 
@@ -27,5 +26,12 @@ export class BasketComponent implements OnInit {
   CloseBasket = new EventEmitter()
   OnCloseBasket(){
     this.CloseBasket.emit()
+  }
+
+  @Output()
+  OnDeleteItemFromBasket = new EventEmitter()
+  onDeleteFromBasket(item : AddLegToBaketModel) : void{
+    //console.log(item);
+    this.OnDeleteItemFromBasket.emit(item)
   }
 }

@@ -14,7 +14,6 @@ import { LoginUserStorage } from './OtherLogic/StorageDataOfUser/LoginUserStorag
 export class AppComponent {
 
   constructor(private readonly _legoService : LegoService ,private readonly _basketService : BasketService ){
-    
   }
   title = 'Client';
   isShowSideBar : boolean = true
@@ -109,27 +108,22 @@ export class AppComponent {
  
   isShowBasket : boolean = false
   BasketRespoce : any
-  ItemsInBasket : Array<ItemInBasketDTO> = []
   ItemForAddedInBasker : Array<AddLegToBaketModel> = []
   private readonly _userStorage  = LoginUserStorage.getInstance()
   ShowBasket() : void{
-    this.ItemsInBasket = []
     this.ItemForAddedInBasker = []
     let user = this._userStorage.getUser()
     this._basketService.getAllItemsFromBasket().subscribe(respoce => {
       this.BasketRespoce = respoce
-      console.log("Responce : ", this.BasketRespoce);
+      //console.log("Responce : ", this.BasketRespoce);
       for (let item of this.BasketRespoce) {
-        console.log("item : ", item);
-        this.ItemForAddedInBasker.push(new AddLegToBaketModel (item.lego, item.user.email,item.amount))
+        if(item.user.email == user.Email ){
+          this.ItemForAddedInBasker.push(new AddLegToBaketModel (item.id,item.lego, item.user.email,item.amount))
+        }
+        //console.log("item : ", item);
+        
      }
-     console.log( "ItemForAddedInBasker " ,this.ItemForAddedInBasker);
-     for (let item of this.ItemForAddedInBasker) {
-       if(user.Email == item.userEmail){
-         this.ItemsInBasket.push(new ItemInBasketDTO(item.lego , item.amount))
-       } 
-    }
-    console.log(this.ItemsInBasket);
+    //console.log(this.ItemsInBasket);
     })
 
     this.isShowHeader = false
@@ -149,4 +143,21 @@ export class AppComponent {
     
     this.isShowCategories = true
   }
+
+  DeleteItemFromBasket(item : AddLegToBaketModel) : void{
+    console.log(item);
+    this._basketService.deleteItemById(item.id).subscribe(responce => {
+      //console.log(responce);
+      this.RefreshBasket()
+
+      //delete this.ItemForAddedInBasker[this.ItemForAddedInBasker.findIndex(i => i.id == item.id)];
+
+    })
+    
+  }
+
+  RefreshBasket() : void{
+    this.ShowBasket()
+  }
+
 }

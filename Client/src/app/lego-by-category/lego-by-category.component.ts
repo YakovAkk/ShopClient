@@ -35,7 +35,7 @@ export class LegoByCategoryComponent implements OnInit {
       alert("Login please!")
     }
     else{
-      let AddToBaskretItem = new AddLegToBaketModel(item,user.Email)
+      let AddToBaskretItem = new AddLegToBaketModel(null,item,user.Email)
       console.log(AddToBaskretItem);
       this._basketService.additemToBasket(AddToBaskretItem).subscribe((response) => {
         this.BasketResponse = response;
