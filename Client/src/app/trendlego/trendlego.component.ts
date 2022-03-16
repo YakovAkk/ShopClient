@@ -37,7 +37,7 @@ export class TrendlegoComponent implements OnInit {
 
         // console.log("Responce Basket : " ,this.BasketResponse);
 
-        alert(item.name + "was written in database")
+        alert(item.name + "was added to Shoping cart")
       })
     }
 

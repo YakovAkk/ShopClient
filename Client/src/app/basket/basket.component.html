@@ -4,9 +4,9 @@
         <div class="cl-btn-7" (click)="OnCloseBasket()"></div>
         <ul class="list">
             <li *ngFor = "let item of ItemsInBasket; let idx = index">
-                <div class = "basketsItem">
-                    <img src = {{item.lego.imageUrl}}  width="100"  height="100">
-                    <div class="ButtonAndInfo">
+                
+                    <div class="basketsItem">
+                        <img src = {{item.lego.imageUrl}}  width="100"  height="100">
                         <div class="PriceAndNameBlock">
                             <p>{{item.lego.name}}</p>
                             <p> Price : {{item.lego.price}} $</p>
@@ -22,7 +22,7 @@
                         </button>
                     </div>
                     
-                </div>
+                
             </li>
         </ul>
     </div>

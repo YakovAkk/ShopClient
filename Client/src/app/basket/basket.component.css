@@ -65,7 +65,7 @@
   }
   .basketsItem{
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
     padding: 10px;
     margin: 10px;
@@ -173,7 +173,4 @@ button:focus .icon{
 button:focus .text{
     transform: rotateZ(-2deg) scale(0.3) translate(-270px,10px);
 }
-.ButtonAndInfo{
-  display: flex;
-  align-items: center;
-}
+
