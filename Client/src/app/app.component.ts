@@ -160,4 +160,10 @@ export class AppComponent {
     this.ShowBasket()
   }
 
+
+  ContinueShopping() : void{
+    this.CloseBasket()
+    this.OnTrendClick()
+  }
+
 }

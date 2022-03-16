@@ -174,3 +174,19 @@ button:focus .text{
     transform: rotateZ(-2deg) scale(0.3) translate(-270px,10px);
 }
 
+.BasketIsEmpty{
+  height: 500px;
+}
+
+.Message{
+  text-align: center;
+  font-size: 24px;
+  margin-top: 10%;
+  margin-left: 10%;
+}
+
+.MessButton{
+  margin-top: 20%;
+  margin-left: 37%;
+  cursor: pointer;
+}

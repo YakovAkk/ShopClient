@@ -16,10 +16,8 @@ export class BasketComponent implements OnInit {
 
   constructor() { }
 
-
   ngOnInit(): void {
     console.log(this.ItemsInBasket);
-    
   }
 
   @Output()
@@ -34,4 +32,11 @@ export class BasketComponent implements OnInit {
     //console.log(item);
     this.OnDeleteItemFromBasket.emit(item)
   }
+
+  @Output()
+  onContinueShopping = new EventEmitter()
+  contShopping() : void{
+    this.onContinueShopping.emit()
+  }
+
 }
