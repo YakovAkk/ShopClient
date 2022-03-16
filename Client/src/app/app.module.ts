@@ -18,6 +18,7 @@ import { UserService } from './OtherLogic/Services/UserService';
 import { TrendlegoComponent } from './trendlego/trendlego.component';
 import { BasketComponent } from './basket/basket.component';
 import { BasketService } from './OtherLogic/Services/BasketService';
+import { SendToMailService } from './OtherLogic/Services/SendToMailService';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,7 @@ import { BasketService } from './OtherLogic/Services/BasketService';
     HttpClientModule, 
     FormsModule  
   ],
-  providers: [CategoryService,LegoService,UserService , BasketService],
+  providers: [CategoryService,LegoService,UserService , BasketService,SendToMailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,6 +4,7 @@ import { ItemInBasketDTO } from './OtherLogic/Models/ItemInBasketDTO';
 import { LegoModel } from './OtherLogic/Models/LegoModel';
 import { BasketService } from './OtherLogic/Services/BasketService';
 import { LegoService } from './OtherLogic/Services/LegoService';
+import { SendToMailService } from './OtherLogic/Services/SendToMailService';
 import { LoginUserStorage } from './OtherLogic/StorageDataOfUser/LoginUserStorage';
 
 @Component({
@@ -13,7 +14,10 @@ import { LoginUserStorage } from './OtherLogic/StorageDataOfUser/LoginUserStorag
 })
 export class AppComponent {
 
-  constructor(private readonly _legoService : LegoService ,private readonly _basketService : BasketService ){
+  constructor(
+    private readonly _legoService : LegoService,
+    private readonly _basketService : BasketService,
+    private readonly _sendToMailService : SendToMailService ){
   }
   title = 'Client';
   isShowSideBar : boolean = true
@@ -109,8 +113,10 @@ export class AppComponent {
   isShowBasket : boolean = false
   BasketRespoce : any
   ItemForAddedInBasker : Array<AddLegToBaketModel> = []
+  TotalPriceInBasket : number = 0
   private readonly _userStorage  = LoginUserStorage.getInstance()
   ShowBasket() : void{
+    this.TotalPriceInBasket = 0
     this.ItemForAddedInBasker = []
     let user = this._userStorage.getUser()
     this._basketService.getAllItemsFromBasket().subscribe(respoce => {
@@ -119,6 +125,7 @@ export class AppComponent {
       for (let item of this.BasketRespoce) {
         if(item.user.email == user.Email ){
           this.ItemForAddedInBasker.push(new AddLegToBaketModel (item.id,item.lego, item.user.email,item.amount))
+          this.TotalPriceInBasket += item.lego.price
         }
         //console.log("item : ", item);
         
@@ -147,23 +154,43 @@ export class AppComponent {
   DeleteItemFromBasket(item : AddLegToBaketModel) : void{
     console.log(item);
     this._basketService.deleteItemById(item.id).subscribe(responce => {
-      //console.log(responce);
       this.RefreshBasket()
-
-      //delete this.ItemForAddedInBasker[this.ItemForAddedInBasker.findIndex(i => i.id == item.id)];
-
     })
-    
   }
 
   RefreshBasket() : void{
     this.ShowBasket()
   }
 
-
   ContinueShopping() : void{
     this.CloseBasket()
     this.OnTrendClick()
   }
 
+  MakeOrder():void{
+
+    let listWithLego : string = "Your list of goods : "
+
+    this.ItemForAddedInBasker.forEach(element => {
+      listWithLego += 
+      `Name : ${element.lego.name} \n 
+      Price : ${element.lego.price} \n 
+      Amount : ${element.amount} \n\n `
+      });
+      listWithLego += `Total price : ${this.TotalPriceInBasket}`
+      console.log(listWithLego);
+      
+    // sent to email choose element
+    this._sendToMailService.Send(listWithLego).subscribe(responce => {
+      console.log(responce)
+    })
+    // delete all element frob basket
+
+    this.ItemForAddedInBasker.forEach(element => {
+      this.DeleteItemFromBasket(element)
+    });
+
+    // say "thank you for buying lego"
+    alert("Thank you for buying lego")
+  }
 }

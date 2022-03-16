@@ -23,6 +23,9 @@
                         </div>
                 </li>
             </ul>
+            <h2 class="totalPrice">Total price : {{TotalPrice}} $</h2>
+            <button class="OrderBtn" (click)="OnMakeOrder()">Make the order</button>
+
         </div>
         <div *ngIf="ItemsInBasket.length <= 0">
             <div class="BasketIsEmpty">

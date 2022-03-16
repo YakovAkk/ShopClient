@@ -14,6 +14,9 @@ export class BasketComponent implements OnInit {
   @Input()
   ItemsInBasket : Array<AddLegToBaketModel> = []
 
+  @Input()
+  TotalPrice : number = 0
+
   constructor() { }
 
   ngOnInit(): void {
@@ -38,5 +41,9 @@ export class BasketComponent implements OnInit {
   contShopping() : void{
     this.onContinueShopping.emit()
   }
-
+  @Output()
+  onMakeOrder = new EventEmitter()
+  OnMakeOrder() : void{
+    this.onMakeOrder.emit()
+  }
 }

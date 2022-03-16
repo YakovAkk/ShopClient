@@ -82,6 +82,7 @@
   
   
   button{
+    cursor: pointer;
     width: 270px;
     height: 70px;
     outline: none;
@@ -188,5 +189,15 @@ button:focus .text{
 .MessButton{
   margin-top: 20%;
   margin-left: 37%;
-  cursor: pointer;
+}
+
+.OrderBtn{
+  margin-left: 37%;
+}
+
+.totalPrice{
+  margin-left: 65%;
+  font-size: 30px;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
