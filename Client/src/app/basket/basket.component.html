@@ -30,6 +30,7 @@
         <div *ngIf="ItemsInBasket.length <= 0">
             <div class="BasketIsEmpty">
                 <h1>Shopping cart:</h1>
+                <div class="cl-btn-7" (click)="OnCloseBasket()"></div>
                 <p class="Message">Shopping cart is empty, you can continue shopping</p>
                 <button class="MessButton" (click)="contShopping()">Continue shopping</button>
             </div>
