@@ -18,12 +18,15 @@
                             </form>
                         </li>
                         ---->
-                        <li ><p class="nick" [hidden]="isLoginUser">Name : {{_userStorage.getUser().NickName}}</p></li> 
-                        <li><button class="sp-btn" (click)="ShowLogin()" [hidden]="!isLoginUser">Log in</button></li>
-                        <li><button class="sp-btn-white" (click)="ShowRegistration()" [hidden]="!isLoginUser">Sign up</button></li>
-                        <li><button class="sp-btn" [hidden]="isLoginUser" (click)="Logout()">Logout</button></li>
-                        <li><button class="sp-btn-white" [hidden]="isLoginUser" (click)="OnClickBasket()">Basket</button></li>
-
+                        <div *ngIf='_userStorage.getUser().NickName == ""  '>
+                            <li><button class="sp-btn" (click)="ShowLogin()" >Log in</button></li>
+                            <li><button class="sp-btn-white" (click)="ShowRegistration()" >Sign up</button></li>
+                        </div>
+                       <div *ngIf='_userStorage.getUser().NickName != ""  '>
+                        <li ><p class="nick" > Name : {{_userStorage.getUser().NickName}}</p></li> 
+                        <li><button class="sp-btn" (click)="Logout()">Logout</button></li>
+                        <li><button class="sp-btn-white" (click)="OnClickBasket()">Basket</button></li>
+                       </div>
                     </ul>
                 </nav>
         </header>

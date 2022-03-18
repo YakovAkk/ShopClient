@@ -23,10 +23,6 @@ export class LoginFormComponent implements OnInit {
   @Output()
   onClose = new EventEmitter() 
 
-  @Output()
-  onLogin = new EventEmitter() 
-
-
   Close() : void{
     this.onClose.emit()
   }
@@ -79,7 +75,6 @@ export class LoginFormComponent implements OnInit {
 
 
       alert("Welcome!")
-      this.onLogin.emit()
       this.onClose.emit()
       //console.log("cookie : ", this._cookieService.get('.AspNetCore.Identity.Application'));
       

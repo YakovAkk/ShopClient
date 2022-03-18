@@ -72,11 +72,6 @@ export class AppComponent {
     this.ShowHeader()
   }
 
-  isShowBasketaAndLogoutButton : boolean = true
-  onLogin() : void{
-    this.isShowBasketaAndLogoutButton = !this.isShowBasketaAndLogoutButton
-  }
-
   isShowLegoByCategory : boolean = false
   isShowCategories : boolean = true
   isShowTrendsLego : boolean = false

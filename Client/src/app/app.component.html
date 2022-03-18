@@ -2,9 +2,10 @@
 
 <app-header (onShowSideBar)="hideSideBarFromHeader()" (onShowLogin)="ShowLogin()"
  (onShowRegistration)="ShowRegistration()" [isShowComponent] = "isShowHeader"
-  [isLoginUser] = "isShowBasketaAndLogoutButton" [isShowCategories]="isShowCategories" 
+  [isShowCategories]="isShowCategories" 
   [isShowLegobyCategory]="isShowLegoByCategory" (OnClickBuy)="ClickBuy()"
-  [isShowTrendsLego]="isShowTrendsLego" [legoForTernds]="LegoByFavorite" (OnBasketEvent)="ShowBasket()"></app-header>
+  [isShowTrendsLego]="isShowTrendsLego" [legoForTernds]="LegoByFavorite"
+   (OnBasketEvent)="ShowBasket()"></app-header>
 <app-side-bar [isShowSideBar]="isShowSideBar" 
 (HomeClickEvent)="OnHomeClick()" 
 (TrendClickEvent)="OnTrendClick()" ></app-side-bar>
@@ -12,7 +13,7 @@
 <!--------------------------------------- test ------------------------------------------------------>
 
 <app-register-form [isShowComponent] = "isShowRegistration" (onClose)="CloseRegistration()"></app-register-form>
-<app-login-form  [isShowComponent] = "isShowLogin" (onClose)="CloseLogin()" (onLogin)="onLogin()"></app-login-form>  
+<app-login-form  [isShowComponent] = "isShowLogin" (onClose)="CloseLogin()" ></app-login-form>  
 
 <app-basket 
 [isShowComponent]="isShowBasket" 

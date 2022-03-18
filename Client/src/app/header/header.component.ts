@@ -45,11 +45,6 @@ export class HeaderComponent implements OnInit {
     this.onShowRegistration.emit()
   }
   constructor(private readonly _userService : UserService, private readonly _legoService : LegoService) { }
-  
-  @Input()
-  public isLoginUser = true
-
-  
   ngOnInit(): void {
     
   }
@@ -58,7 +53,7 @@ export class HeaderComponent implements OnInit {
     let user : UserModel = this._userStorage.getUser()
     this._userService.UserLogout(new UserLogin(user.NickName,user.Email,user.RememberMe)).subscribe((response) => {
        console.log(response)
-       this.isLoginUser = !this.isLoginUser
+       this._userStorage.setUser(new UserModel("","",false))
     }) 
   }
 
