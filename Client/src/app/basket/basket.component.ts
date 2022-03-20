@@ -46,4 +46,5 @@ export class BasketComponent implements OnInit {
   OnMakeOrder() : void{
     this.onMakeOrder.emit()
   }
+  
 }

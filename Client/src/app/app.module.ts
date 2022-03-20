@@ -19,6 +19,8 @@ import { TrendlegoComponent } from './trendlego/trendlego.component';
 import { BasketComponent } from './basket/basket.component';
 import { BasketService } from './OtherLogic/Services/BasketService';
 import { SendToMailService } from './OtherLogic/Services/SendToMailService';
+import { SuccessfulPopupComponent } from './successful-popup/successful-popup.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import { SendToMailService } from './OtherLogic/Services/SendToMailService';
     RegisterFormComponent,
     LegoByCategoryComponent,
     TrendlegoComponent,
-    BasketComponent
+    BasketComponent,
+    SuccessfulPopupComponent
   ],
   imports: [
     BrowserModule,

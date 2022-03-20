@@ -8,12 +8,13 @@
    (OnBasketEvent)="ShowBasket()"></app-header>
 <app-side-bar [isShowSideBar]="isShowSideBar" 
 (HomeClickEvent)="OnHomeClick()" 
-(TrendClickEvent)="OnTrendClick()" ></app-side-bar>
+(TrendClickEvent)="OnTrendClick()"
+ ></app-side-bar>
 
 <!--------------------------------------- test ------------------------------------------------------>
-
+<app-successful-popup [hidden]="!isShowPopup" (onClosePopup)="ClosePopupLogin()" [Message]="messageForPopup"></app-successful-popup>
 <app-register-form [isShowComponent] = "isShowRegistration" (onClose)="CloseRegistration()"></app-register-form>
-<app-login-form  [isShowComponent] = "isShowLogin" (onClose)="CloseLogin()" ></app-login-form>  
+<app-login-form  [isShowComponent] = "isShowLogin" (onClose)="CloseLogin()" (onShowPopup)="ShowPopupLogin()"></app-login-form>  
 
 <app-basket 
 [isShowComponent]="isShowBasket" 
@@ -24,3 +25,4 @@
 (onMakeOrder)="MakeOrder()"
 [TotalPrice]="TotalPriceInBasket"
 ></app-basket>
+

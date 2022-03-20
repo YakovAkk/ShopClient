@@ -22,7 +22,9 @@ export class LoginFormComponent implements OnInit {
 
   @Output()
   onClose = new EventEmitter() 
-
+  @Output()
+  onShowPopup = new EventEmitter() 
+  @Output()
   Close() : void{
     this.onClose.emit()
   }
@@ -73,16 +75,18 @@ export class LoginFormComponent implements OnInit {
       this._userStorage.setUser(new UserModel(this.LoginResponse.nickName,
         this.LoginResponse.email,this.LoginResponse.rememberMe))
 
-
-      alert("Welcome!")
+      
+      this.onShowPopup.emit()
       this.onClose.emit()
       //console.log("cookie : ", this._cookieService.get('.AspNetCore.Identity.Application'));
       
     })
     
+    
      this.userEmail = ""
      this.userPassword = ""
   }
+  
 
   isShowIncorrectEmail = false
   MessageWhatIsIncorrectEmail = ""

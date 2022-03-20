@@ -1,0 +1,39 @@
+
+.block{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0.75;
+    background-color: black;
+
+
+    z-index: 900;
+
+   
+
+}
+
+.popup{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    overflow: auto;
+    transition: all 0.8s ease 0s;
+
+}
+
+.popup-content{
+    padding: 20px;
+    background-color: blue;
+    color: #fff;
+    margin: 40px;
+    margin-top: 20%;
+    margin-left: 30%;
+    margin-right: 20%;
+}

@@ -188,4 +188,16 @@ export class AppComponent {
     // say "thank you for buying lego"
     alert("Thank you for buying lego")
   }
+
+  messageForPopup : string = ""
+  isShowPopup : boolean = false
+  ClosePopupLogin() : void{
+    this.isShowPopup = false
+  }
+  ShowPopupLogin() : void{
+    this.messageForPopup = "You have been entered to your cabinet, successfuly!"
+    this.isShowPopup = true
+  }
+
+  
 }
