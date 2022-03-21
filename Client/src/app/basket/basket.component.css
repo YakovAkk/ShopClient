@@ -193,6 +193,12 @@ button:focus .text{
 
 .OrderBtn{
   margin-left: 37%;
+  box-shadow: 0 5px 0px black;
+  transition-duration: 1s;
+}
+.OrderBtn:hover {
+  background: aqua;
+  box-shadow: 0 3px 0px black;
 }
 
 .totalPrice{

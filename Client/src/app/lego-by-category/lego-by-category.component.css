@@ -29,8 +29,13 @@
     color: #fff;
     font-family: inherit;
     border-radius: 3px;
+    box-shadow: 0 5px 0px black;
+    transition-duration: 1s;
   }
-
+  .sp-btn:hover {
+    background: aqua;
+    box-shadow: 0 3px 0px black;
+  }
   .desc{
     padding: 10px 30px;
     font-size: 20px;

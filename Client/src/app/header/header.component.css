@@ -46,6 +46,8 @@
                 color: #fff;
                 font-family: inherit;
                 border-radius: 3px;
+                box-shadow: 0 5px 0px black;
+                transition-duration: 1s;
               }
               .sp-btn-white {
                 padding: 10px 40px;
@@ -54,7 +56,18 @@
                 cursor: pointer;
                 color: #4a5568;
                 border-radius: 3px;
+                box-shadow: 0 5px 0px black;
+                transition-duration: 1s;
               }
+              .sp-btn-white:hover{
+                box-shadow: 0 3px 0px black;
+                background: aqua;
+              }
+              .sp-btn:hover{
+                box-shadow: 0 3px 0px black;
+                background: aqua;
+              }
+
             input {
               padding: 9px 10px;
               border: 1px solid #4a5568;

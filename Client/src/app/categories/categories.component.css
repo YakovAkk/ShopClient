@@ -31,10 +31,12 @@
     color: #fff;
     font-family: inherit;
     border-radius: 3px;
-    
+    transition-duration: 1s;
+    box-shadow: 0 5px 0px black;
   }
 
-  .block .item .inlineBlock button :hover {
-    background: linear-gradient(90deg, rgb(34, 58, 107) 0%, rgba(0,0,0,1) 100%);
-    cursor: alias;
+  .block .item .inlineBlock button:hover {
+    background: aqua;
+    box-shadow: 0 3px 0px black;
   }
+  
