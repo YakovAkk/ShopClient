@@ -6,7 +6,7 @@
     list-style: none;
 }
 
-.item{ 
+.block .item{ 
     border: 1px solid #000;
     border-radius: 30px;
     display: block;
@@ -16,14 +16,14 @@
     
 }
 
-.inlineBlock{
+.block .item .inlineBlock{
     font-family: inherit;
     font-size: 24px;
     display: flex;
     padding: 10px;
 }
 
-.sp-btn {
+.block .item .inlineBlock .sp-btn {
     padding: 10px 40px;
     margin: 0px 0px 0px 170px;
     background: #4a5568;
@@ -31,4 +31,10 @@
     color: #fff;
     font-family: inherit;
     border-radius: 3px;
+    
+  }
+
+  .block .item .inlineBlock button :hover {
+    background: linear-gradient(90deg, rgb(34, 58, 107) 0%, rgba(0,0,0,1) 100%);
+    cursor: alias;
   }
