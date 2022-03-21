@@ -38,5 +38,6 @@
   .block .item .inlineBlock button:hover {
     background: aqua;
     box-shadow: 0 3px 0px black;
+    color: black;
   }
   

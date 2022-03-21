@@ -189,6 +189,13 @@ button:focus .text{
 .MessButton{
   margin-top: 20%;
   margin-left: 37%;
+  box-shadow: 0 5px 0px black;
+  transition-duration: 1s;
+}
+.MessButton:hover {
+  background: aqua;
+  box-shadow: 0 3px 0px black;
+  color: #000;
 }
 
 .OrderBtn{
@@ -199,6 +206,7 @@ button:focus .text{
 .OrderBtn:hover {
   background: aqua;
   box-shadow: 0 3px 0px black;
+  color: #000;
 }
 
 .totalPrice{

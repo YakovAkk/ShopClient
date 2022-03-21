@@ -58,6 +58,7 @@
                 border-radius: 3px;
                 box-shadow: 0 5px 0px black;
                 transition-duration: 1s;
+                
               }
               .sp-btn-white:hover{
                 box-shadow: 0 3px 0px black;
@@ -66,6 +67,7 @@
               .sp-btn:hover{
                 box-shadow: 0 3px 0px black;
                 background: aqua;
+                color: black;
               }
 
             input {

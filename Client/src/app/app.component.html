@@ -12,7 +12,12 @@
  ></app-side-bar>
 
 <!--------------------------------------- test ------------------------------------------------------>
-<app-successful-popup [hidden]="!isShowPopup" (onClosePopup)="ClosePopupLogin()" [Message]="messageForPopup"></app-successful-popup>
+<app-successful-popup 
+[hidden]="!isShowPopup" 
+(onClosePopup)="ClosePopupLogin()"
+ [Message]="messageForPopup"
+ [popupState]="popupState"
+ ></app-successful-popup>
 <app-register-form [isShowComponent] = "isShowRegistration" (onClose)="CloseRegistration()"></app-register-form>
 <app-login-form  [isShowComponent] = "isShowLogin" (onClose)="CloseLogin()" (onShowPopup)="ShowPopupLogin()"></app-login-form>  
 

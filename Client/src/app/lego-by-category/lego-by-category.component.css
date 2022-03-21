@@ -35,6 +35,7 @@
   .sp-btn:hover {
     background: aqua;
     box-shadow: 0 3px 0px black;
+    color: black;
   }
   .desc{
     padding: 10px 30px;

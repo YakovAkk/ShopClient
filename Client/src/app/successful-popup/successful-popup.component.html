@@ -1,7 +1,9 @@
-<div class="popup" (click)="ClosePopup()">
+
+<div [@PopupAnimation] = "popupState" (click)="ClosePopup()">
   <div class = "popup-content">
     <h2>Successful!</h2>
     <p>{{Message}}</p>
   </div>
 </div>
-<div class="block"></div>
+<!-- <div class="block"></div> -->
+

@@ -12,8 +12,6 @@
 
     z-index: 900;
 
-   
-
 }
 
 .popup{
@@ -24,10 +22,7 @@
     right: 0;
     z-index: 1000;
     overflow: auto;
-    transition: all 0.8s ease 0s;
-
 }
-
 .popup-content{
     padding: 20px;
     background-color: blue;

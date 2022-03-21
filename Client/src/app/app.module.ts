@@ -20,7 +20,7 @@ import { BasketComponent } from './basket/basket.component';
 import { BasketService } from './OtherLogic/Services/BasketService';
 import { SendToMailService } from './OtherLogic/Services/SendToMailService';
 import { SuccessfulPopupComponent } from './successful-popup/successful-popup.component';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,13 +32,15 @@ import { SuccessfulPopupComponent } from './successful-popup/successful-popup.co
     LegoByCategoryComponent,
     TrendlegoComponent,
     BasketComponent,
-    SuccessfulPopupComponent
+    SuccessfulPopupComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, 
-    FormsModule  
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [CategoryService,LegoService,UserService , BasketService,SendToMailService],
   bootstrap: [AppComponent]
