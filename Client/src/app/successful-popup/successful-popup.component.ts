@@ -7,16 +7,13 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
   styleUrls: ['./successful-popup.component.css'],
   animations : [
     trigger('PopupAnimation' , [
-      state('a',style({
-        backgroundColor : 'blue'
-      })),
       state('start',style({
        position : 'fixed',
        top : '0',
        bottom: '0',
        left: '0',
        right: '0',
-       transform: 'translate(0px,-100%)'
+       transform: 'translate(100%,100%)'
       })),
       state('end',style({
         position : 'fixed',
@@ -24,7 +21,7 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
         bottom: '0',
         left: '0',
         right: '0',
-        transform: 'translate(0px,0px)'
+        transform: 'translate(400px,450px)'
 
       })),
       transition('start => end',animate(50000))
@@ -48,6 +45,8 @@ export class SuccessfulPopupComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.popupState = 'end'
+    console.log("aaaaaaaaa")
   }
 
 }

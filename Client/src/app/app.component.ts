@@ -196,7 +196,7 @@ export class AppComponent {
     this.isShowPopup = false
   }
   ShowPopupLogin() : void{
-    this.messageForPopup = "You have been entered to your cabinet, successfuly!"
+    this.messageForPopup = "You have been entered to your cabinet, successfully!"
     this.isShowPopup = true
     this.popupState = 'end'
   }
