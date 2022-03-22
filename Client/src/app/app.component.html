@@ -1,46 +1,68 @@
 
 
-<app-header (onShowSideBar)="hideSideBarFromHeader()" 
-(onShowLogin)="ShowLogin()"
- (onShowRegistration)="ShowRegistration()" 
- [isShowComponent] = "isShowHeader"
+<app-header 
+  [isShowComponent] = "isShowHeader"
   [isShowCategories]="isShowCategories" 
-  [isShowLegobyCategory]="isShowLegoByCategory"
-   (OnClickBuy)="ClickBuy()"
+  [isShowLegobyCategory]="isShowLegoByCategory" 
   [isShowTrendsLego]="isShowTrendsLego" 
   [legoForTernds]="LegoByFavorite"
-   (OnBasketEvent)="ShowBasket()"
-   (OnShowWrongPopup)="ShowWrongPopup($event)"
-   (OnShowSuccessfullPopup)="ShowSuccessfullPopup($event)"
+
+  (onShowSideBar)="hideSideBarFromHeader()" 
+  (onShowRegistration)="ShowRegistration()"
+  (onShowLogin)="ShowLogin()"
+  (OnClickBuy)="ClickBuy()"
+  (OnBasketEvent)="ShowBasket()"
+  (OnShowWrongPopup)="ShowWrongPopup($event)"
+  (OnShowSuccessfullPopup)="ShowSuccessfullPopup($event)"
    ></app-header>
-<app-side-bar [isShowSideBar]="isShowSideBar" 
+
+<app-side-bar
+ [isShowSideBar]="isShowSideBar"
+
 (HomeClickEvent)="OnHomeClick()" 
 (TrendClickEvent)="OnTrendClick()"
  ></app-side-bar>
 
 <!--------------------------------------- test ------------------------------------------------------>
+
 <app-successful-popup 
 [hidden]="!isShowPopup" 
-(onClosePopup)="CloseSuccessfullPopup()"
  [Message]="messageForPopup"
  [popupState]="popupState"
+
+ (onClosePopup)="CloseSuccessfullPopup()"
  ></app-successful-popup>
+
  <app-wrong-popup 
  [hidden]="!isShowWrongPopup"
  [Message]="messageForWrongPopup"
- (onClosePopup)="CloseWrongPopup()"
  [popupState]="wrongPopupState"
+
+ (onClosePopup)="CloseWrongPopup()"
  ></app-wrong-popup>
-<app-register-form [isShowComponent] = "isShowRegistration" (onClose)="CloseRegistration()"></app-register-form>
-<app-login-form  [isShowComponent] = "isShowLogin" (onClose)="CloseLogin()" (onShowPopup)="ShowSuccessfullPopup($event)"></app-login-form>  
+<app-register-form
+ [isShowComponent] = "isShowRegistration" 
+
+ (onClose)="CloseRegistration()"
+ ></app-register-form>
+
+<app-login-form 
+ [isShowComponent] = "isShowLogin"
+
+  (onClose)="CloseLogin()" 
+  (onShowPopup)="ShowSuccessfullPopup($event)"
+  ></app-login-form>  
 
 <app-basket 
 [isShowComponent]="isShowBasket" 
-(CloseBasket)="CloseBasket()" 
 [ItemsInBasket]="ItemForAddedInBasker"
+[TotalPrice]="TotalPriceInBasket"
+
+(minusOneFromAmountItem)="nimusOne($event)"
 (OnDeleteItemFromBasket)="DeleteItemFromBasket($event)"
 (onContinueShopping)="ContinueShopping()"
 (onMakeOrder)="MakeOrder()"
-[TotalPrice]="TotalPriceInBasket"
+(CloseBasket)="CloseBasket()" 
+(addOneToAmountItem)="addOne($event)"
 ></app-basket>
 

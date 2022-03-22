@@ -11,6 +11,11 @@
                                 <p>{{item.lego.name}}</p>
                                 <p> Price : {{item.lego.price}} $</p>
                             </div>
+                            <div class = "blockAmountOfItem">
+                                <div (click)="minusItem(item)" class="nimusAndPlusItems">-</div>
+                                <p class="numberOfItem">{{item.amount}}</p>
+                                <div (click)="AddItem(item)"  class="nimusAndPlusItems">+</div>
+                            </div>
                             <button (click)="onDeleteFromBasket(item)">
                                 <span class = "icon">
                                     <span class="top"></span>

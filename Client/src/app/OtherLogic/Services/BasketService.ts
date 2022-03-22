@@ -5,6 +5,7 @@ import { AddLegToBaketModel } from "../Models/AddLegToBaketModel";
 
 @Injectable()
 export class BasketService {
+    
     private readonly _urlAdress : string = 'https://localhost:7284/api/Basket'
     constructor(private http : HttpClient){
     }
@@ -26,5 +27,21 @@ export class BasketService {
         console.log("id : " + itemsId);
         
         return this.http.delete(`https://localhost:7284/api/Basket/${itemsId}`, {withCredentials: true})
+    }
+
+    putItem(item : AddLegToBaketModel) : Observable<Object>{
+        return this.http.put(this._urlAdress , item,{withCredentials: true});
+    }
+
+    SaveChanges(ItemForAddedInBasker: AddLegToBaketModel[]) {
+        //console.log(ItemForAddedInBasker);
+        
+        ItemForAddedInBasker.forEach(element => {
+            //console.log( "Service : ", element)
+            this.putItem(element).subscribe(responce => {
+                console.log(responce);
+                
+            })
+      });
     }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AddLegToBaketModel } from '../OtherLogic/Models/AddLegToBaketModel';
 import { LegoModel } from '../OtherLogic/Models/LegoModel';
 import { BasketService } from '../OtherLogic/Services/BasketService';
@@ -22,10 +22,15 @@ export class TrendlegoComponent implements OnInit {
   BasketResponse : any
   ngOnInit(): void {
   }
+
+  @Output()
+  onShowWrongPopup = new EventEmitter() 
+  @Output()
+  onShowSuccessfullPopup = new EventEmitter() 
   OnBuyClick(item : LegoModel){
     let user = this._userStorage.getUser()
     if( user.Email == "" && user.NickName == ""){
-      alert("Login please!")
+      this.onShowWrongPopup.emit("You should enter to your account")
     }
     else{
       let AddToBaskretItem = new AddLegToBaketModel(null,item,user.Email)
@@ -37,7 +42,8 @@ export class TrendlegoComponent implements OnInit {
 
         // console.log("Responce Basket : " ,this.BasketResponse);
 
-        alert(item.name + "was added to Shoping cart")
+        this.onShowSuccessfullPopup.emit(item.name + "was added to Shoping cart")
+        //alert(item.name + "was added to Shoping cart")
       })
     }
 

@@ -20,7 +20,7 @@ export class BasketComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.ItemsInBasket);
+    //console.log(this.ItemsInBasket);
   }
 
   @Output()
@@ -45,6 +45,18 @@ export class BasketComponent implements OnInit {
   onMakeOrder = new EventEmitter()
   OnMakeOrder() : void{
     this.onMakeOrder.emit()
+  }
+
+  @Output()
+  addOneToAmountItem = new EventEmitter()
+  AddItem(item : AddLegToBaketModel ) : void{
+    this.addOneToAmountItem.emit(item)
+  }
+
+  @Output()
+  minusOneFromAmountItem = new EventEmitter()
+  minusItem(item : AddLegToBaketModel ) : void{
+    this.minusOneFromAmountItem.emit(item)
   }
   
 }

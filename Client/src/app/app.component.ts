@@ -107,6 +107,7 @@ export class AppComponent {
     this.isShowLegoByCategory = false
   }
  
+  // ----------------------------------------------------- BASKET --------------------------------------------------------
   isShowBasket : boolean = false
   BasketRespoce : any
   ItemForAddedInBasker : Array<AddLegToBaketModel> = []
@@ -122,7 +123,7 @@ export class AppComponent {
       for (let item of this.BasketRespoce) {
         if(item.user.email == user.Email ){
           this.ItemForAddedInBasker.push(new AddLegToBaketModel (item.id,item.lego, item.user.email,item.amount))
-          this.TotalPriceInBasket += item.lego.price
+          this.TotalPriceInBasket += item.lego.price * item.amount
         }
         //console.log("item : ", item);
         
@@ -137,7 +138,6 @@ export class AppComponent {
     this.isShowLegoByCategory = false
     this.isShowBasket = true
   }
-
   CloseBasket(){
     this.isShowBasket = false
     this.isShowHeader = true
@@ -146,24 +146,27 @@ export class AppComponent {
     }
     
     this.isShowCategories = true
+
+    this.SaveBaksetInDB()
+  }
+
+  SaveBaksetInDB() : void{
+    this._basketService.SaveChanges(this.ItemForAddedInBasker)
   }
 
   DeleteItemFromBasket(item : AddLegToBaketModel) : void{
-    console.log(item);
+    //console.log(item);
     this._basketService.deleteItemById(item.id).subscribe(responce => {
       this.RefreshBasket()
     })
   }
-
   RefreshBasket() : void{
     this.ShowBasket()
   }
-
   ContinueShopping() : void{
     this.CloseBasket()
     this.OnTrendClick()
   }
-
   MakeOrder():void{
 
     let listWithLego : string = "Your list of goods : "
@@ -191,6 +194,22 @@ export class AppComponent {
     //alert("Thank you for buying lego")
     this.ShowSuccessfullPopup("Order was sent, check your mail!")
   }
+
+  nimusOne(item : AddLegToBaketModel) : void {
+    if(item.amount > 1){
+      item.amount -= 1
+    }
+    
+    console.log(item);
+  }
+  addOne(item : AddLegToBaketModel) : void{
+    item.amount += 1
+    console.log(item);
+    // this._basketService.
+  }
+
+// ----------------------------------------------------- END CODE BASKET ---------------------------------------------------
+
 
   popupState : string = ""
   messageForPopup : string = ""
