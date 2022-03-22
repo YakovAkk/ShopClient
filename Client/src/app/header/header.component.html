@@ -38,10 +38,21 @@
 
         
         <div>
-            <app-categories (onChooseCategory)="ChooseCategory($event)" [isShowCategories]="isShowCategories" ></app-categories>
-            <app-lego-by-category [Lego]="LegoByCategory" [Category]="UserChooseCategory" 
-            [isShowLegoByCategory]="isShowLegobyCategory" ></app-lego-by-category>
-            <app-trendlego [isShowTrendLego]="isShowTrendsLego" [Lego]="legoForTernds"></app-trendlego>
+            <app-categories 
+            (onChooseCategory)="ChooseCategory($event)" 
+            [isShowCategories]="isShowCategories" 
+            ></app-categories>
+            <app-lego-by-category 
+            (onShowWrongPopup)="ShowWrongPopup($event)"
+            [Lego]="LegoByCategory" 
+            [Category]="UserChooseCategory" 
+            [isShowLegoByCategory]="isShowLegobyCategory" 
+            (onShowSuccessfullPopup)="ShowSuccessfullPopup($event)"
+            ></app-lego-by-category>
+            <app-trendlego 
+            [isShowTrendLego]="isShowTrendsLego" 
+            [Lego]="legoForTernds"
+            ></app-trendlego>
         </div>
 
 

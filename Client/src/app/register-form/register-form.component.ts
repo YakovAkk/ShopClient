@@ -18,7 +18,8 @@ export class RegisterFormComponent implements OnInit {
 
   @Output()
   onClose = new EventEmitter() 
-
+  @Output()
+  onShowPopup = new EventEmitter() 
   Close() : void{
     this.onClose.emit()
   }
@@ -51,9 +52,6 @@ export class RegisterFormComponent implements OnInit {
       console.error("Passwords must be equal each other")
       return
     }
-
-    
-
     let user = new UserRegistration(this.userName, this.userEmail,this.userPassword)
 
     console.log(user)
@@ -71,6 +69,7 @@ export class RegisterFormComponent implements OnInit {
      console.log("Great!!")
 
      this.onClose.emit()
+     this.onShowPopup.emit("You have been created your new Account, !")
      //  for (let item of this.CategoryResponse) {
      //     this.Categories.push(new CategoryModel(item.id,item.name,item.imageUrl))
      //  }

@@ -20,7 +20,8 @@ import { BasketComponent } from './basket/basket.component';
 import { BasketService } from './OtherLogic/Services/BasketService';
 import { SendToMailService } from './OtherLogic/Services/SendToMailService';
 import { SuccessfulPopupComponent } from './successful-popup/successful-popup.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { WrongPopupComponent } from './wrong-popup/wrong-popup.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     TrendlegoComponent,
     BasketComponent,
     SuccessfulPopupComponent,
+    WrongPopupComponent,
     
   ],
   imports: [

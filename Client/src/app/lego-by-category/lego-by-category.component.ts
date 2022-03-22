@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { AddLegToBaketModel } from '../OtherLogic/Models/AddLegToBaketModel';
 import { CategoryModel } from '../OtherLogic/Models/CategoryModel';
@@ -26,13 +26,17 @@ export class LegoByCategoryComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  @Output()
+  onShowWrongPopup = new EventEmitter() 
+  @Output()
+  onShowSuccessfullPopup = new EventEmitter() 
   BasketResponse : any
 
   OnBuyClick(item : LegoModel){
     let user = this._userStorage.getUser()
     if( user.Email == "" && user.NickName == ""){
-      alert("Login please!")
+      //alert("Login please!")
+      this.onShowWrongPopup.emit("You should enter to your account")
     }
     else{
       let AddToBaskretItem = new AddLegToBaketModel(null,item,user.Email)
@@ -42,7 +46,8 @@ export class LegoByCategoryComponent implements OnInit {
         
         // console.log("Item : " ,AddToBaskretItem);
         // console.log("Responce Basket : " ,this.BasketResponse);
-        alert(item.name + "was added to Shoping cart")
+        //alert(item.name + "was added to Shoping cart")
+        this.onShowSuccessfullPopup.emit(item.name + "was added to Shoping cart")
       })
     }
     

@@ -1,11 +1,18 @@
 
 
-<app-header (onShowSideBar)="hideSideBarFromHeader()" (onShowLogin)="ShowLogin()"
- (onShowRegistration)="ShowRegistration()" [isShowComponent] = "isShowHeader"
+<app-header (onShowSideBar)="hideSideBarFromHeader()" 
+(onShowLogin)="ShowLogin()"
+ (onShowRegistration)="ShowRegistration()" 
+ [isShowComponent] = "isShowHeader"
   [isShowCategories]="isShowCategories" 
-  [isShowLegobyCategory]="isShowLegoByCategory" (OnClickBuy)="ClickBuy()"
-  [isShowTrendsLego]="isShowTrendsLego" [legoForTernds]="LegoByFavorite"
-   (OnBasketEvent)="ShowBasket()"></app-header>
+  [isShowLegobyCategory]="isShowLegoByCategory"
+   (OnClickBuy)="ClickBuy()"
+  [isShowTrendsLego]="isShowTrendsLego" 
+  [legoForTernds]="LegoByFavorite"
+   (OnBasketEvent)="ShowBasket()"
+   (OnShowWrongPopup)="ShowWrongPopup($event)"
+   (OnShowSuccessfullPopup)="ShowSuccessfullPopup($event)"
+   ></app-header>
 <app-side-bar [isShowSideBar]="isShowSideBar" 
 (HomeClickEvent)="OnHomeClick()" 
 (TrendClickEvent)="OnTrendClick()"
@@ -14,12 +21,18 @@
 <!--------------------------------------- test ------------------------------------------------------>
 <app-successful-popup 
 [hidden]="!isShowPopup" 
-(onClosePopup)="ClosePopupLogin()"
+(onClosePopup)="CloseSuccessfullPopup()"
  [Message]="messageForPopup"
  [popupState]="popupState"
  ></app-successful-popup>
+ <app-wrong-popup 
+ [hidden]="!isShowWrongPopup"
+ [Message]="messageForWrongPopup"
+ (onClosePopup)="CloseWrongPopup()"
+ [popupState]="wrongPopupState"
+ ></app-wrong-popup>
 <app-register-form [isShowComponent] = "isShowRegistration" (onClose)="CloseRegistration()"></app-register-form>
-<app-login-form  [isShowComponent] = "isShowLogin" (onClose)="CloseLogin()" (onShowPopup)="ShowPopupLogin()"></app-login-form>  
+<app-login-form  [isShowComponent] = "isShowLogin" (onClose)="CloseLogin()" (onShowPopup)="ShowSuccessfullPopup($event)"></app-login-form>  
 
 <app-basket 
 [isShowComponent]="isShowBasket" 

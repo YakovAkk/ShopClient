@@ -37,7 +37,7 @@
   }
   .cl-btn-7:hover:before {
     transform: scale(0.8) rotate(45deg);
-    color: aqua;
+    color: orange;
   }
 .popup{
     position: fixed;
@@ -51,7 +51,7 @@
 .popup-content{
     padding: 20px;
     background-color: black;
-    color: aqua;
+    color: orange;
     margin: 20px;
     margin-top: 25%;
     margin-left: 60%;

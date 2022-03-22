@@ -2,9 +2,9 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-successful-popup',
-  templateUrl: './successful-popup.component.html',
-  styleUrls: ['./successful-popup.component.css'],
+  selector: 'app-wrong-popup',
+  templateUrl: './wrong-popup.component.html',
+  styleUrls: ['./wrong-popup.component.css'],
   animations : [
     trigger('PopupAnimation' , [
       state('start',style({
@@ -24,12 +24,12 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
         transform: 'translate(300px,350px)'
 
       })),
-      transition('start => end',animate(1000)),
-      transition('end => start',animate(1000))
+      transition('start => end',animate(500)),
+      transition('end => start',animate(500))
     ])
   ]
 })
-export class SuccessfulPopupComponent implements OnInit {
+export class WrongPopupComponent implements OnInit {
 
   @Input()
   popupState : string = 'start'
@@ -48,5 +48,4 @@ export class SuccessfulPopupComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
 }

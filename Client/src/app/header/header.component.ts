@@ -100,4 +100,18 @@ export class HeaderComponent implements OnInit {
     this.OnBasketEvent.emit()
   }
 
+  
+  @Output()
+  OnShowWrongPopup = new EventEmitter()
+  ShowWrongPopup(message : string) : void{
+    this.OnShowWrongPopup.emit(message)
+  }
+  
+  @Output()
+  OnShowSuccessfullPopup = new EventEmitter()
+  ShowSuccessfullPopup(message : string) : void{
+    this.OnShowSuccessfullPopup.emit(message)
+  }
+  
+
 }

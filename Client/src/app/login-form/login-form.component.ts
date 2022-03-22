@@ -76,8 +76,9 @@ export class LoginFormComponent implements OnInit {
         this.LoginResponse.email,this.LoginResponse.rememberMe))
 
       
-      this.onShowPopup.emit()
+      
       this.onClose.emit()
+      this.onShowPopup.emit("You have been entered to your cabinet, successfully!")
       //console.log("cookie : ", this._cookieService.get('.AspNetCore.Identity.Application'));
       
     })

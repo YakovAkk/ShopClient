@@ -63,6 +63,8 @@ export class AppComponent {
       this.ShowSideBar()
     }
     this.ShowHeader()
+
+    
   }
   CloseRegistration() : void {
     this.isShowRegistration = !this.isShowRegistration
@@ -186,20 +188,43 @@ export class AppComponent {
     });
 
     // say "thank you for buying lego"
-    alert("Thank you for buying lego")
+    //alert("Thank you for buying lego")
+    this.ShowSuccessfullPopup("Order was sent, check your mail!")
   }
 
   popupState : string = ""
   messageForPopup : string = ""
   isShowPopup : boolean = false
-  ClosePopupLogin() : void{
+  CloseSuccessfullPopup() : void{
+    this.popupState = 'start'
     this.isShowPopup = false
   }
-  ShowPopupLogin() : void{
-    this.messageForPopup = "You have been entered to your cabinet, successfully!"
+  ShowSuccessfullPopup(message : string) : void{
+    this.popupState = 'start'
+    this.messageForPopup = message
     this.isShowPopup = true
-    this.popupState = 'end'
+    setTimeout(() => {
+      this.popupState = 'end'
+    },1000)
+   
   }
 
+  wrongPopupState : string = ""
+  messageForWrongPopup : string = ""
+  isShowWrongPopup : boolean = false
+  ShowWrongPopup(message : string) : void{
+    
+    this.wrongPopupState = 'start'
+    this.messageForWrongPopup = message
+      this.isShowWrongPopup = true
+    setTimeout(() => {
+      this.wrongPopupState = 'end'
+    },1000)
+   
+  }
+  CloseWrongPopup() : void{
+    this.wrongPopupState = 'start'
+    this.isShowWrongPopup = false
+  }
   
 }
