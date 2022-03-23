@@ -12,4 +12,8 @@ export class HistoryService {
     addToUsersHistory(item : HistoryModel) : Observable<Object>{
         return this.http.post(this._urlAdress ,item, {withCredentials: true} )
     }
+
+    getAll() : Observable<Object>{
+        return this.http.post(this._urlAdress , {withCredentials: true} )
+    }
 }
