@@ -39,7 +39,7 @@ export class BasketService {
         ItemForAddedInBasker.forEach(element => {
             //console.log( "Service : ", element)
             this.putItem(element).subscribe(responce => {
-                console.log(responce);
+                //console.log(responce);
                 
             })
       });

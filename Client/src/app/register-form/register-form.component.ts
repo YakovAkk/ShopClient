@@ -18,8 +18,6 @@ export class RegisterFormComponent implements OnInit {
 
   @Output()
   onClose = new EventEmitter() 
-  @Output()
-  onShowPopup = new EventEmitter() 
   Close() : void{
     this.onClose.emit()
   }
@@ -32,7 +30,10 @@ export class RegisterFormComponent implements OnInit {
   userEmail = ""
   userPassword = ""
   userConfirmPassword = ""
-
+  @Output()
+  onShowWrongPopup = new EventEmitter() 
+  @Output()
+  onShowSuccessfullPopup = new EventEmitter() 
   OnClick(){
     this.ShowIncorrectEmail("")
     this.ShowIncorrectPassword("")
@@ -58,21 +59,29 @@ export class RegisterFormComponent implements OnInit {
      this._userService.RegistrationUser(user).subscribe((response) => {
      this.RegistrationResponse = response;
 
+     console.log(this.RegistrationResponse);
+     
      if(this.RegistrationResponse == null){
-       this.ShowIncorrectUser("Incorrect email or password. If you haven't account , you can register.")
-       console.error("Incorrect email or password")
+       this.ShowIncorrectUser("Incorrect email or password is too easy.")
+       //console.error("Incorrect email or password")
        return
      }
 
-     alert("Register was completed succsessfuly, now you can login)")
+     if(this.RegistrationResponse.result){
+      this.onShowWrongPopup.emit(this.RegistrationResponse.result)
+     }
+     else{
+        //alert("Register was completed succsessfuly, now you can login)")
 
-     console.log("Great!!")
+        //console.log("Great!!")
 
-     this.onClose.emit()
-     this.onShowPopup.emit("You have been created your new Account, !")
-     //  for (let item of this.CategoryResponse) {
-     //     this.Categories.push(new CategoryModel(item.id,item.name,item.imageUrl))
-     //  }
+        this.onClose.emit()
+        this.onShowSuccessfullPopup.emit("Register was completed succsessfuly, now you can login")
+     }
+
+
+
+    
       
    })
     

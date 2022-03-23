@@ -1,7 +1,7 @@
 <div [hidden]="!isShowComponent" class="block">
     <div class = "center">
         <div *ngIf="ItemsInBasket.length > 0">
-            <h1>Shoping cart:</h1>
+            <h1>Shopping cart:</h1>
             <div class="cl-btn-7" (click)="OnCloseBasket()"></div>
             <ul class="list">
                 <li *ngFor = "let item of ItemsInBasket">

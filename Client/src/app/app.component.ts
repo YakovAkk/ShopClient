@@ -178,11 +178,11 @@ export class AppComponent {
       Amount : ${element.amount} \n\n `
       });
       listWithLego += `Total price : ${this.TotalPriceInBasket}`
-      console.log(listWithLego);
+      //console.log(listWithLego);
       
     // sent to email choose element
     this._sendToMailService.Send(listWithLego).subscribe(responce => {
-      console.log(responce)
+      //console.log(responce)
     })
     // delete all element frob basket
 
@@ -200,11 +200,11 @@ export class AppComponent {
       item.amount -= 1
     }
     
-    console.log(item);
+    //console.log(item);
   }
   addOne(item : AddLegToBaketModel) : void{
     item.amount += 1
-    console.log(item);
+    //console.log(item);
     // this._basketService.
   }
 

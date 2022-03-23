@@ -32,7 +32,7 @@ export class LegoByCategoryComponent implements OnInit {
   onShowSuccessfullPopup = new EventEmitter() 
   BasketResponse : any
 
-  OnBuyClick(item : LegoModel){
+  OnBuyClick(item : LegoModel) : void{
     let user = this._userStorage.getUser()
     if( user.Email == "" && user.NickName == ""){
       //alert("Login please!")
@@ -40,9 +40,15 @@ export class LegoByCategoryComponent implements OnInit {
     }
     else{
       let AddToBaskretItem = new AddLegToBaketModel(null,item,user.Email)
-      console.log(AddToBaskretItem);
+      //console.log(AddToBaskretItem);
       this._basketService.additemToBasket(AddToBaskretItem).subscribe((response) => {
         this.BasketResponse = response;
+        
+        //console.log(response);
+        if(this.BasketResponse == null){
+          this.onShowWrongPopup.emit("The shopping cart has already contained the kit of lego")
+          return
+        }
         
         // console.log("Item : " ,AddToBaskretItem);
         // console.log("Responce Basket : " ,this.BasketResponse);

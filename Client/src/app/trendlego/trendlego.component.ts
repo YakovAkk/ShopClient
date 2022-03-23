@@ -37,7 +37,10 @@ export class TrendlegoComponent implements OnInit {
       console.log(AddToBaskretItem);
       this._basketService.additemToBasket(AddToBaskretItem).subscribe((response) => {
         this.BasketResponse = response;
-        
+        if(this.BasketResponse == null){
+          this.onShowWrongPopup.emit("The shopping cart has already contained the kit of lego")
+          return
+        }
         // console.log("Item : " ,AddToBaskretItem);
 
         // console.log("Responce Basket : " ,this.BasketResponse);
