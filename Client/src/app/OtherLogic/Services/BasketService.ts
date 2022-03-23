@@ -24,7 +24,7 @@ export class BasketService {
 
         let url = this._urlAdress + '/' + itemsId
 
-        console.log("id : " + itemsId);
+        //console.log("id : " + itemsId);
         
         return this.http.delete(`https://localhost:7284/api/Basket/${itemsId}`, {withCredentials: true})
     }

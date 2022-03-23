@@ -22,6 +22,7 @@ import { SendToMailService } from './OtherLogic/Services/SendToMailService';
 import { SuccessfulPopupComponent } from './successful-popup/successful-popup.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { WrongPopupComponent } from './wrong-popup/wrong-popup.component'
+import { HistoryService } from './OtherLogic/Services/HistoryService';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,7 @@ import { WrongPopupComponent } from './wrong-popup/wrong-popup.component'
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [CategoryService,LegoService,UserService , BasketService,SendToMailService],
+  providers: [CategoryService,LegoService,UserService , BasketService,SendToMailService,HistoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

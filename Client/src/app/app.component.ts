@@ -1,8 +1,10 @@
 import { Component, Output } from '@angular/core';
 import { AddLegToBaketModel } from './OtherLogic/Models/AddLegToBaketModel';
+import { HistoryModel } from './OtherLogic/Models/HistoryModel';
 import { ItemInBasketDTO } from './OtherLogic/Models/ItemInBasketDTO';
 import { LegoModel } from './OtherLogic/Models/LegoModel';
 import { BasketService } from './OtherLogic/Services/BasketService';
+import { HistoryService } from './OtherLogic/Services/HistoryService';
 import { LegoService } from './OtherLogic/Services/LegoService';
 import { SendToMailService } from './OtherLogic/Services/SendToMailService';
 import { LoginUserStorage } from './OtherLogic/StorageDataOfUser/LoginUserStorage';
@@ -17,7 +19,9 @@ export class AppComponent {
   constructor(
     private readonly _legoService : LegoService,
     private readonly _basketService : BasketService,
-    private readonly _sendToMailService : SendToMailService ){
+    private readonly _sendToMailService : SendToMailService,
+    private readonly _historyService : HistoryService
+    ){
   }
   title = 'Client';
   isShowSideBar : boolean = true
@@ -110,19 +114,19 @@ export class AppComponent {
   // ----------------------------------------------------- BASKET --------------------------------------------------------
   isShowBasket : boolean = false
   BasketRespoce : any
-  ItemForAddedInBasker : Array<AddLegToBaketModel> = []
+  ItemForAddedInBasket : Array<AddLegToBaketModel> = []
   TotalPriceInBasket : number = 0
   private readonly _userStorage  = LoginUserStorage.getInstance()
   ShowBasket() : void{
     this.TotalPriceInBasket = 0
-    this.ItemForAddedInBasker = []
+    this.ItemForAddedInBasket = []
     let user = this._userStorage.getUser()
     this._basketService.getAllItemsFromBasket().subscribe(respoce => {
       this.BasketRespoce = respoce
       //console.log("Responce : ", this.BasketRespoce);
       for (let item of this.BasketRespoce) {
         if(item.user.email == user.Email ){
-          this.ItemForAddedInBasker.push(new AddLegToBaketModel (item.id,item.lego, item.user.email,item.amount))
+          this.ItemForAddedInBasket.push(new AddLegToBaketModel (item.id,item.lego, item.user.email,item.amount))
           this.TotalPriceInBasket += item.lego.price * item.amount
         }
         //console.log("item : ", item);
@@ -151,7 +155,7 @@ export class AppComponent {
   }
 
   SaveBaksetInDB() : void{
-    this._basketService.SaveChanges(this.ItemForAddedInBasker)
+    this._basketService.SaveChanges(this.ItemForAddedInBasket)
   }
 
   DeleteItemFromBasket(item : AddLegToBaketModel) : void{
@@ -171,7 +175,7 @@ export class AppComponent {
 
     let listWithLego : string = "Your list of goods : "
 
-    this.ItemForAddedInBasker.forEach(element => {
+    this.ItemForAddedInBasket.forEach(element => {
       listWithLego += 
       `Name : ${element.lego.name} \n 
       Price : ${element.lego.price} \n 
@@ -179,16 +183,27 @@ export class AppComponent {
       });
       listWithLego += `Total price : ${this.TotalPriceInBasket}`
       //console.log(listWithLego);
-      
+    
+    // Write to History
+
+    let historyModel = new HistoryModel(this._userStorage.getUser().Email,this.ItemForAddedInBasket)
+
+      this._historyService.addToUsersHistory(historyModel).subscribe(responce =>{
+        //console.log(responce);
+        
+      })
+
     // sent to email choose element
     this._sendToMailService.Send(listWithLego).subscribe(responce => {
       //console.log(responce)
     })
-    // delete all element frob basket
+    // delete all element from basket
 
-    this.ItemForAddedInBasker.forEach(element => {
+    this.ItemForAddedInBasket.forEach(element => {
       this.DeleteItemFromBasket(element)
     });
+
+
 
     // say "thank you for buying lego"
     //alert("Thank you for buying lego")
