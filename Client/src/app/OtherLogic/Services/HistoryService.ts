@@ -14,6 +14,6 @@ export class HistoryService {
     }
 
     getAll() : Observable<Object>{
-        return this.http.post(this._urlAdress , {withCredentials: true} )
+        return this.http.get(this._urlAdress , {withCredentials: true} )
     }
 }

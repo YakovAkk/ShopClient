@@ -19,8 +19,9 @@
 <app-side-bar
  [isShowSideBar]="isShowSideBar"
 
-(HomeClickEvent)="OnHomeClick()" 
-(TrendClickEvent)="OnTrendClick()"
+ (HistoryClickEvent)="OnHistoryClick()"
+ (HomeClickEvent)="OnHomeClick()" 
+ (TrendClickEvent)="OnTrendClick()"
  ></app-side-bar>
 
 <!--------------------------------------- test ------------------------------------------------------>
@@ -68,3 +69,8 @@
 (addOneToAmountItem)="addOne($event)"
 ></app-basket>
 
+<app-history [hidden]="!isShowHistory" 
+[HistoryList]="historyList"
+
+(OnCloseEvent)="OnCloseHistory()"
+></app-history>

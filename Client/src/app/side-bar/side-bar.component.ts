@@ -25,4 +25,13 @@ export class SideBarComponent implements OnInit {
   OnTrendiClick(){
     this.TrendClickEvent.emit()
   }
+
+  @Output()
+  HistoryClickEvent = new EventEmitter() 
+  OnHistoryClick() : void
+  {
+    this.HistoryClickEvent.emit()
+  }
+
+
 }

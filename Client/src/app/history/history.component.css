@@ -1,0 +1,61 @@
+.block{
+    width: 100%;
+    height: 100%;
+    background-color: #4a5568;
+    padding: 20px;
+  }
+
+  .center {
+    position: absolute;
+    top: 10%;
+    overflow: hidden;
+    width: 50%;
+    border: 1px solid #000;
+    position: relative;
+    padding: 30px 30px 30px 30px;
+    background: #fff;
+    border-radius: 20px;
+    margin: auto;
+  }
+
+  .cl-btn-7 {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    position: relative;
+    z-index: 1;
+    margin: 20px auto;
+    cursor: pointer;
+  }
+  .cl-btn-7:before {
+    content: '+';
+    color: #4a5568;
+    position: absolute;
+    z-index: 2;
+    transform: rotate(45deg);
+    font-size: 50px;
+    line-height: 1;
+    top: -230%;
+    left: 1090%;
+    transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+  }
+  .cl-btn-7:after {
+    content: '';
+    position: absolute;
+    top: -220%;
+    left: 1080%;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background: #4a5568;
+    z-index: 1;
+    transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+    transform: scale(0.01);
+  }
+  .cl-btn-7:hover:after {
+    transform: scale(1);
+  }
+  .cl-btn-7:hover:before {
+    transform: scale(0.8) rotate(45deg);
+    color: #fff;
+  }

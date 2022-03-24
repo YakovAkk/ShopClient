@@ -6,11 +6,9 @@ import { AppComponent } from './app.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { CategoriesComponent } from './categories/categories.component';
-
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { FormsModule } from '@angular/forms';
-
 import { LegoByCategoryComponent } from './lego-by-category/lego-by-category.component';
 import { CategoryService } from './OtherLogic/Services/CategoryService';
 import { LegoService } from './OtherLogic/Services/LegoService';
@@ -23,6 +21,12 @@ import { SuccessfulPopupComponent } from './successful-popup/successful-popup.co
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { WrongPopupComponent } from './wrong-popup/wrong-popup.component'
 import { HistoryService } from './OtherLogic/Services/HistoryService';
+import { HistoryComponent } from './history/history.component';
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +40,7 @@ import { HistoryService } from './OtherLogic/Services/HistoryService';
     BasketComponent,
     SuccessfulPopupComponent,
     WrongPopupComponent,
+    HistoryComponent,
     
   ],
   imports: [

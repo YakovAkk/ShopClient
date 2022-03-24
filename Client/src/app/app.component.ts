@@ -1,8 +1,11 @@
 import { Component, Output } from '@angular/core';
 import { AddLegToBaketModel } from './OtherLogic/Models/AddLegToBaketModel';
 import { HistoryModel } from './OtherLogic/Models/HistoryModel';
+import { HistoryOrder } from './OtherLogic/Models/HistoryOrder';
 import { ItemInBasketDTO } from './OtherLogic/Models/ItemInBasketDTO';
 import { LegoModel } from './OtherLogic/Models/LegoModel';
+import { UserModel } from './OtherLogic/Models/UserModel';
+import { UsersHistoryModel } from './OtherLogic/Models/UsersHistoryModel';
 import { BasketService } from './OtherLogic/Services/BasketService';
 import { HistoryService } from './OtherLogic/Services/HistoryService';
 import { LegoService } from './OtherLogic/Services/LegoService';
@@ -226,6 +229,7 @@ export class AppComponent {
 // ----------------------------------------------------- END CODE BASKET ---------------------------------------------------
 
 
+//------------------------------------------------------- POPUP ------------------------------------------------------------
   popupState : string = ""
   messageForPopup : string = ""
   isShowPopup : boolean = false
@@ -260,5 +264,62 @@ export class AppComponent {
     this.wrongPopupState = 'start'
     this.isShowWrongPopup = false
   }
-  
+
+//-------------------------------------------------------END POPUP ----------------------------------------------------------
+
+  isShowHistory : boolean = false
+
+  historyList : UsersHistoryModel = new UsersHistoryModel(this._userStorage.getUser(),
+  new Array<HistoryOrder>())
+
+  OnHistoryClick() : void{
+    if(this._userStorage.getUser().Email == ""){
+      this.ShowWrongPopup("You should login!")
+      return
+    }
+
+    let historyList : UsersHistoryModel
+    let ordersList : Array<HistoryOrder> = []
+    this._historyService.getAll().subscribe( (responce : any) =>{
+
+      //console.log(responce);
+
+      responce.forEach((element : any) => {
+
+        if(element.user.email == this._userStorage.getUser().Email){
+            element.orders.forEach((order : any) => {
+              let myOrder = new HistoryOrder(
+                new AddLegToBaketModel(null,order.lego,order.user.email,order.amount),
+                order.dateDeal
+                )
+              //console.log(myOrder);
+              ordersList.push(myOrder)
+            });
+            historyList = new UsersHistoryModel(
+              new UserModel(element.user.nickName,element.user.email,element.user.rememberMe),ordersList
+              )
+        }
+      })
+
+      //console.log("---------------------------------------");
+      
+      historyList.orders.forEach(element => {
+        console.log(element.date.toString());
+        console.log(element.date.getTime);
+      });
+      this.historyList = historyList
+      //console.log("AAAAA : ",historyList);
+    })
+    
+
+    this.isShowHistory = true
+    this.isShowHeader = false
+    this.isShowSideBar = false
+  }
+
+  OnCloseHistory() : void{
+    this.isShowHistory = false
+    this.isShowHeader = true
+    this.isShowSideBar = true
+  }
 }
