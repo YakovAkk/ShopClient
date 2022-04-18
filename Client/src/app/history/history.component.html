@@ -1,0 +1,18 @@
+
+<div  class="block">
+    <div class = "center">
+        <div>
+            <h1>Name  : {{HistoryList.user.NickName}}</h1>
+            <div class="cl-btn-7" (click)="Close()"></div>
+            <h2>Your Orders History : </h2>
+            <ul>
+                <li *ngFor = "let item of HistoryList.orders">
+                    <div>
+                        <p>{{item.date.toString()}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+</div>

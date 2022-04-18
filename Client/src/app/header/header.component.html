@@ -1,0 +1,71 @@
+<div class="body-wrapper row" [hidden]="!isShowComponent">
+    <div [ngClass]="{'active': isShowSideBar}" class="content-wrapper">        
+        <header [ngClass]="{ 'active': isShowSideBar}" class="top-header">
+                <div class="menu-btn toggle-btn" (click)="ShowSideBar()">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    version="1.1" x="0px" y="0px" viewBox="0 0 100 125" 
+                    enable-background="new 0 0 100 100" 
+                    xml:space="preserve"><g><g>
+                        <path d="M4.667,82.982H95v-6.018H4.667V82.982z M4.667,52.895H95v-6.018H4.667V52.895z M4.667,19.798v6.018H95v-6.018H4.667z"/>
+                    </g></g></svg>
+                </div>
+                <nav class="navbar-top">
+                    <ul>
+                        <!----
+                        <li>
+                            <form>
+                                <input type="search" name="" placeholder="Search for games">
+                            </form>
+                        </li>
+                        ---->
+                        <div *ngIf='_userStorage.getUser().NickName == ""  '>
+                            <li><button class="sp-btn" (click)="ShowLogin()" >Log in</button></li>
+                            <li><button class="sp-btn-white" (click)="ShowRegistration()" >Sign up</button></li>
+                        </div>
+                       <div *ngIf='_userStorage.getUser().NickName != ""  '>
+                        <li ><p class="nick" > Name : {{_userStorage.getUser().NickName}}</p></li> 
+                        <li><button class="sp-btn" (click)="Logout()">Logout</button></li>
+                        <li><button class="sp-btn-white" (click)="OnClickBasket()">Basket</button></li>
+                       </div>
+                    </ul>
+                </nav>
+        </header>
+        <header class="hero-slider">
+                    
+            <h1></h1>
+        
+        </header>
+
+        
+        <div>
+            <app-categories 
+            [isShowCategories]="isShowCategories" 
+
+            (onChooseCategory)="ChooseCategory($event)" 
+            ></app-categories>
+
+            <app-lego-by-category 
+            [Lego]="LegoByCategory" 
+            [Category]="UserChooseCategory" 
+            [isShowLegoByCategory]="isShowLegobyCategory" 
+
+            (onShowSuccessfullPopup)="ShowSuccessfullPopup($event)"
+            (onShowWrongPopup)="ShowWrongPopup($event)"
+
+            ></app-lego-by-category>
+            <app-trendlego 
+            [isShowTrendLego]="isShowTrendsLego" 
+            [Lego]="legoForTernds"
+
+            (onShowSuccessfullPopup)="ShowSuccessfullPopup($event)"
+            (onShowWrongPopup)="ShowWrongPopup($event)"
+
+            ></app-trendlego>
+        </div>
+
+
+    </div>
+
+</div>
+
+

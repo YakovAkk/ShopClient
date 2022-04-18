@@ -1,0 +1,52 @@
+.block{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.item{ 
+    border: 1px solid #000;
+    border-radius: 30px;
+    display: block;
+    margin: 50px;
+    padding: 30px;
+    border-color: #4a5568;
+}
+
+.inlineBlock{
+    font-family: inherit;
+    font-size: 20px;
+    display: flex;
+    padding: 10px;
+}
+
+.sp-btn {
+    margin-bottom: 20px;
+    padding: 10px 30px;
+    margin: 0px 0px 0px 30px;
+    background: #4a5568;
+    cursor: pointer;
+    color: #fff;
+    font-family: inherit;
+    border-radius: 3px;
+    box-shadow: 0 5px 0px black;
+    transition-duration: 1s;
+  }
+  .sp-btn:hover {
+    background: aqua;
+    box-shadow: 0 3px 0px black;
+    color: black;
+  }
+
+  .desc{
+    padding: 10px 30px;
+    font-size: 20px;
+    font-family: inherit;
+  }
+
+  .CategotyStyle{
+    margin: 40px;
+    text-align: center;
+    font-size: 30px;
+    font-family: inherit;
+  }

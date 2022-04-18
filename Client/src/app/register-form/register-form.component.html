@@ -1,0 +1,43 @@
+
+<div class="block" [hidden]="!isShowComponent">
+  <div class="center">
+    <div class="headerClose">
+      <h1>Registration:</h1>
+      <div class="cl-btn-7" (click)="Close()"></div>
+    </div>
+    <form>
+      <div class="inputbox">
+        <input type="text" required="required" [ngModelOptions]="{standalone: true}" [(ngModel)] = "userName">
+        <span>Nick name</span>
+      </div>
+      <div class = "incorrectData" [hidden]="!isShowIncorrectEmail">
+        <p> {{MessageWhatIsIncorrectEmail}}</p>
+      </div>
+      <div class="inputbox">
+        <input type="text" required="required"  [ngModelOptions]="{standalone: true}" [(ngModel)] = "userEmail">
+        <span>Email</span>
+      </div>
+      <div class = "incorrectData" [hidden]="!isShowIncorrectPassword">
+        <p> {{MessageWhatIsIncorrectPassword}}</p>
+      </div>
+      <div class="inputbox">
+        <input type="password" required="required" [ngModelOptions]="{standalone: true}" [(ngModel)] = "userPassword">
+        <span>Password</span>
+      </div>
+      <div class = "incorrectData" [hidden]="!isShowIncorrectPasswordNotEqual">
+        <p> {{MessageWhatIsIncorrectPasswordNotEqual}}</p>
+      </div>
+      <div class="inputbox">
+        <input type="password" required="required" [ngModelOptions]="{standalone: true}" [(ngModel)] = "userConfirmPassword">
+        <span>Confirm password</span>
+      </div>
+      <div class = "incorrectData" [hidden]="!isShowIncorrectUser">
+        <p> {{MessageWhatIsIncorrectUser}}</p>
+      </div>
+      <div class="inputbox">
+        <input type="button" value="register" (click)="OnClick()">
+      </div>
+    </form>
+  </div>
+</div>
+

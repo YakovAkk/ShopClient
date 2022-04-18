@@ -1,0 +1,44 @@
+<div [hidden]="!isShowComponent" class="block">
+    <div class = "center">
+        <div *ngIf="ItemsInBasket.length > 0">
+            <h1>Shopping cart:</h1>
+            <div class="cl-btn-7" (click)="OnCloseBasket()"></div>
+            <ul class="list">
+                <li *ngFor = "let item of ItemsInBasket">
+                        <div class="basketsItem">
+                            <img src = {{item.lego.imageUrl}}  width="100"  height="100">
+                            <div class="PriceAndNameBlock">
+                                <p>{{item.lego.name}}</p>
+                                <p> Price : {{item.lego.price}} $</p>
+                            </div>
+                            <div class = "blockAmountOfItem">
+                                <div (click)="minusItem(item)" class="nimusAndPlusItems">-</div>
+                                <p class="numberOfItem">{{item.amount}}</p>
+                                <div (click)="AddItem(item)"  class="nimusAndPlusItems">+</div>
+                            </div>
+                            <button (click)="onDeleteFromBasket(item)">
+                                <span class = "icon">
+                                    <span class="top"></span>
+                                    <span class="bottom"></span>
+                                </span>
+                                <span class = "text">
+                                    DELETE
+                                </span>
+                            </button>
+                        </div>
+                </li>
+            </ul>
+            <h2 class="totalPrice">Total price : {{TotalPrice}} $</h2>
+            <button class="OrderBtn" (click)="OnMakeOrder()">Make the order</button>
+
+        </div>
+        <div *ngIf="ItemsInBasket.length <= 0">
+            <div class="BasketIsEmpty">
+                <h1>Shopping cart:</h1>
+                <div class="cl-btn-7" (click)="OnCloseBasket()"></div>
+                <p class="Message">Shopping cart is empty, you can continue shopping</p>
+                <button class="MessButton" (click)="contShopping()">Continue shopping</button>
+            </div>
+        </div>
+    </div>
+</div>

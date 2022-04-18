@@ -1,0 +1,19 @@
+<div [hidden]="!isShowCategories">
+    <ul class="block">
+        <li *ngFor = "let category of Categories; let idx = index">
+            <div class = "item">
+                <div class = "inlineBlock">
+                    <h4> Category : {{category.name}} </h4>
+                    <button type="button" class="sp-btn" (click)="OnClick(category.name)"> Buy </button>
+                </div>
+                
+                <img src = {{category.imageUrl}}  width="500"  height="500">
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+
+

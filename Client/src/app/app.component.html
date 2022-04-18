@@ -1,0 +1,76 @@
+
+
+<app-header 
+  [isShowComponent] = "isShowHeader"
+  [isShowCategories]="isShowCategories" 
+  [isShowLegobyCategory]="isShowLegoByCategory" 
+  [isShowTrendsLego]="isShowTrendsLego" 
+  [legoForTernds]="LegoByFavorite"
+
+  (onShowSideBar)="hideSideBarFromHeader()" 
+  (onShowRegistration)="ShowRegistration()"
+  (onShowLogin)="ShowLogin()"
+  (OnClickBuy)="ClickBuy()"
+  (OnBasketEvent)="ShowBasket()"
+  (OnShowWrongPopup)="ShowWrongPopup($event)"
+  (OnShowSuccessfullPopup)="ShowSuccessfullPopup($event)"
+   ></app-header>
+
+<app-side-bar
+ [isShowSideBar]="isShowSideBar"
+
+ (HistoryClickEvent)="OnHistoryClick()"
+ (HomeClickEvent)="OnHomeClick()" 
+ (TrendClickEvent)="OnTrendClick()"
+ ></app-side-bar>
+
+<!--------------------------------------- test ------------------------------------------------------>
+
+<app-successful-popup 
+[hidden]="!isShowPopup" 
+ [Message]="messageForPopup"
+ [popupState]="popupState"
+
+ (onClosePopup)="CloseSuccessfullPopup()"
+ ></app-successful-popup>
+
+ <app-wrong-popup 
+ [hidden]="!isShowWrongPopup"
+ [Message]="messageForWrongPopup"
+ [popupState]="wrongPopupState"
+
+ (onClosePopup)="CloseWrongPopup()"
+ ></app-wrong-popup>
+<app-register-form
+ [isShowComponent] = "isShowRegistration" 
+
+ (onShowSuccessfullPopup)="ShowSuccessfullPopup($event)"
+ (onShowWrongPopup)="ShowWrongPopup($event)"
+ (onClose)="CloseRegistration()"
+ ></app-register-form>
+
+<app-login-form 
+ [isShowComponent] = "isShowLogin"
+
+  (onClose)="CloseLogin()" 
+  (onShowPopup)="ShowSuccessfullPopup($event)"
+  ></app-login-form>  
+
+<app-basket 
+[isShowComponent]="isShowBasket" 
+[ItemsInBasket]="ItemForAddedInBasket"
+[TotalPrice]="TotalPriceInBasket"
+
+(minusOneFromAmountItem)="nimusOne($event)"
+(OnDeleteItemFromBasket)="DeleteItemFromBasket($event)"
+(onContinueShopping)="ContinueShopping()"
+(onMakeOrder)="MakeOrder()"
+(CloseBasket)="CloseBasket()" 
+(addOneToAmountItem)="addOne($event)"
+></app-basket>
+
+<app-history [hidden]="!isShowHistory" 
+[HistoryList]="historyList"
+
+(OnCloseEvent)="OnCloseHistory()"
+></app-history>

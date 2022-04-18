@@ -1,0 +1,20 @@
+<div [hidden]="!isShowTrendLego">
+    <h2 class="CategotyStyle">Trends Lego</h2>
+    <ul class="block">
+        <li *ngFor = "let leg of Lego; let idx = index">
+            <div class="item">
+                <div class = "inlineBlock">
+                    <h4>{{leg.name}} </h4>
+                    
+                </div>
+                <img src = {{leg.imageUrl}}  width="400"  height="400">
+                <p class = "desc">{{leg.description}} </p>
+                <div class = "inlineBlock">
+                    <p class = "desc">Price : {{leg.price}} $ </p>
+                    <button class ="sp-btn" (click)="OnBuyClick(leg)">Add to Basket</button>
+                </div>
+                
+            </div>
+        </li>
+    </ul>
+</div>
