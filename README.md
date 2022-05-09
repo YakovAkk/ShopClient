@@ -5,3 +5,4 @@
 ## 3. in the folder "Client" is contained ssl certificate, add it to trust certificate in your computer
 ## 4. When you start application, you should write in routings before localhost, https://localhost
 ## That's all, have a nice day)
+## Link to version on Docker hub - https://hub.docker.com/repository/docker/yakovfullstack/angular-client
